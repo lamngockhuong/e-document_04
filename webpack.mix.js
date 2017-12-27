@@ -11,5 +11,18 @@ let mix = require('laravel-mix');
  |
  */
 
-mix.js('resources/assets/js/app.js', 'public/js')
-   .sass('resources/assets/sass/app.scss', 'public/css');
+// mix.options({ processCssUrls: false });
+
+/**
+ * Public templates
+ */
+
+mix.js('resources/assets/js/e-document/index.js', 'public/templates/e-document/js')
+    .sass('resources/assets/sass/e-document/index.scss', 'public/templates/e-document/css');
+mix.copy( 'resources/assets/templates/e-document', 'public/templates/e-document');
+
+/**
+ * Admin templates
+ */
+mix.js('resources/assets/js/admin/index.js', 'public/templates/admin/js')
+    .sass('resources/assets/sass/admin/index.scss', 'public/templates/admin/css');
