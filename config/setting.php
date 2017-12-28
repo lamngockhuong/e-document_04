@@ -1,5 +1,8 @@
 <?php
 return [
+
+    'public_view_folder' => 'e-document',
+
     'terms_default' => [
         'name' => '',
         'slug' => '',

@@ -11,6 +11,14 @@
 |
 */
 
-Route::get('/', function () {
+Route::get('/welcome', function () {
     return view('welcome');
 });
+
+Route::resource('/', 'Outside\IndexController', ['only' => [
+    'index',
+]]);
+
+Route::resource('/admin', 'Admin\IndexController', ['only' => [
+    'index',
+]]);
