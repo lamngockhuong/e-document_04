@@ -34,4 +34,15 @@ return [
         'status' => 0,
     ],
 
+    'pagination' => [
+        'number_per_page' => 10,
+    ],
+
+    'tag' => [
+        'taxonomy' => 'tag',
+    ],
+
+    'category' => [
+        'taxonomy' => 'category',
+    ],
 ];

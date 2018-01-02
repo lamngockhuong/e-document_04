@@ -11,14 +11,10 @@
 |
 */
 
-Route::get('/welcome', function () {
-    return view('welcome');
-});
+Route::resource('/', 'Outside\IndexController', ['only' => ['index']]);
 
-Route::resource('/', 'Outside\IndexController', ['only' => [
-    'index',
-]]);
+Route::resource('admin', 'Admin\IndexController', ['only' => ['index']]);
 
-Route::resource('/admin', 'Admin\IndexController', ['only' => [
-    'index',
-]]);
+Route::resource('admin/categories', 'Admin\CategoryController', ['except' => ['show']]);
+
+Route::resource('admin/tags', 'Admin\TagController', ['except' => ['show']]);
