@@ -60,5 +60,5 @@
 @endsection
 @push('script')
     {!! Html::script('templates/admin/js/app.js') !!}
-    {!! Html::script('templates/admin/js/tag.js') !!}
+    {!! Html::script('templates/admin/js/custom.js') !!}
 @endpush

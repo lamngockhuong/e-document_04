@@ -44,5 +44,6 @@ return [
 
     'category' => [
         'taxonomy' => 'category',
+        'none' => 0,
     ],
 ];

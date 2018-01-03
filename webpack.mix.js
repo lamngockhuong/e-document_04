@@ -29,4 +29,4 @@ mix.js('resources/assets/js/admin/app.js', 'public/templates/admin/js')
     .copy('node_modules/admin-lte/plugins','public/templates/admin/plugins')
     .copy('node_modules/icheck/skins/square/blue.png','public/templates/admin/css')
     .copy('node_modules/icheck/skins/square/blue@2x.png','public/templates/admin/css')
-    .copy( 'resources/assets/js/admin/tag.js', 'public/templates/admin/js');
+    .copy( 'resources/assets/js/admin/custom.js', 'public/templates/admin/js');

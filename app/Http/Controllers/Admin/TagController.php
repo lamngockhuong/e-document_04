@@ -21,14 +21,9 @@ class TagController extends Controller
     public function index()
     {
         $title = trans('admin.tag.index.title');
-        $tags = Term::whereHas(
-            'termtaxonomy',
-            function ($query) {
-                $query->where('taxonomy', 'like', 'tag');
-            }
-        )->with('termtaxonomy')->orderBy('id', 'desc')->paginate(config('setting.pagination.number_per_page'));
-
-        // Can use view('admin.category.index', ['categories' => $categories])
+        $tags = Term::whereHas('termtaxonomy', function ($query) {
+            $query->where('taxonomy', 'like', config('setting.tag.taxonomy'));
+        })->with('termtaxonomy')->orderBy('id', 'desc')->paginate(config('setting.pagination.number_per_page'));
 
         return view('admin.tag.index', compact('title', 'tags'));
     }
@@ -58,7 +53,7 @@ class TagController extends Controller
 
             $inputs = $request->only('name', 'slug');
             $term = Term::create($inputs);
-            $term->termtaxonomy()->create([
+            $term->termTaxonomy()->create([
                 'taxonomy' => config('setting.tag.taxonomy'),
                 'description' => $request->description,
             ]);
@@ -123,7 +118,7 @@ class TagController extends Controller
             $inputs = $request->only('name', 'slug');
             $term = Term::findOrFail($id);
             $term->update($inputs);
-            $term->termtaxonomy()->update([
+            $term->termTaxonomy()->update([
                 'taxonomy' => config('setting.tag.taxonomy'),
                 'description' => $request->description,
             ]);

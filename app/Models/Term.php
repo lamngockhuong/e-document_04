@@ -11,7 +11,7 @@ class Term extends Model
         'slug',
     ];
 
-    public function termtaxonomy()
+    public function termTaxonomy()
     {
         return $this->hasOne(TermTaxonomy::class);
     }
