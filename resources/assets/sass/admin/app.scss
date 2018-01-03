@@ -1,11 +1,12 @@
+// Variables
+@import "variables";
 // Bootstrap
-@import "~bootstrap-sass/assets/stylesheets/_bootstrap.scss";
+@import "~bootstrap-sass/assets/stylesheets/bootstrap";
 // Font awesome
 @import "~font-awesome/scss/font-awesome.scss";
 // Ionicons
 @import "~ionicons/dist/scss/ionicons.scss";
-// Import admin lte css
-@import "~admin-lte/dist/css/AdminLTE.css";
-@import "~admin-lte/dist/css/skins/_all-skins.css";
+// Toastr
+@import "~toastr/toastr.scss";
 // Source Sans Pro
 @import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic');

@@ -7,11 +7,11 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>@lang('e-document/layout.title')</title>
     <meta name="description" content="e-document"/>
-    {!! Html::style('templates/e-document/css/index.css') !!}
+    {!! Html::style('templates/e-document/css/app.css') !!}
     {!! Html::style('templates/e-document/css/main.css') !!}
     {!! Html::style('templates/e-document/js/ajax/jquery.qtip.css') !!}
     {!! Html::style('templates/e-document/js/ajax/jquery.ajax.css') !!}
-    {!! Html::script('templates/e-document/js/index.js') !!}
+    {!! Html::script('templates/e-document/js/app.js') !!}
 </head>
 <body>
     @include('e-document.layouts.header')

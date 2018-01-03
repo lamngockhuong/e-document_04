@@ -19,7 +19,17 @@ class TermTaxonomy extends Model
 
     public function documents()
     {
-        return $this->belongsToMany(Document::class, 'term_taxonomy_documents', 'object_id', 'term_taxonomy_id');
+        return $this->belongsToMany(
+            Document::class,
+            'term_taxonomy_documents',
+            'object_id',
+            'term_taxonomy_id'
+        );
+    }
+
+    public function childs()
+    {
+        return $this->hasMany(TermTaxonomy::class, 'parent', 'id');
     }
 
     public function term()

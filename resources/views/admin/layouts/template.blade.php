@@ -6,7 +6,10 @@
     <title>@yield('title')</title>
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-    {!! Html::style('templates/admin/css/index.css') !!}
+    {!! Html::style('templates/admin/css/app.css') !!}
+    {!! Html::style('templates/admin/css/AdminLTE.min.css') !!}
+    {!! Html::style('templates/admin/css/skins/_all-skins.min.css') !!}
+    {!! Html::style('templates/admin/css/custom.css') !!}
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -16,13 +19,11 @@
 </head>
 <body class="hold-transition skin-green sidebar-mini">
 <div class="wrapper">
-
 @include('admin.layouts.header')
 @include('admin.layouts.sidebar')
-
 <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
-        @include('admin.layouts.page-header')
+        @yield('page-header')
         <!-- Main content -->
         <section class="content container-fluid">
             @yield('content')

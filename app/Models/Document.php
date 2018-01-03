@@ -43,7 +43,12 @@ class Document extends Model
 
     public function termtaxonomy()
     {
-        return $this->belongsToMany(TermTaxonomy::class, 'term_taxonomy_documents', 'term_taxonomy_id', 'object_id');
+        return $this->belongsToMany(
+            TermTaxonomy::class,
+            'term_taxonomy_documents',
+            'term_taxonomy_id',
+            'object_id'
+        );
     }
 
     public function favoritedUsers()
