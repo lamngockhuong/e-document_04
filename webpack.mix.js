@@ -11,18 +11,22 @@ let mix = require('laravel-mix');
  |
  */
 
-// mix.options({ processCssUrls: false });
-
 /**
  * Public templates
  */
-
-mix.js('resources/assets/js/e-document/index.js', 'public/templates/e-document/js')
-    .sass('resources/assets/sass/e-document/index.scss', 'public/templates/e-document/css');
-mix.copy( 'resources/assets/templates/e-document', 'public/templates/e-document');
+mix.js('resources/assets/js/e-document/app.js', 'public/templates/e-document/js')
+    .sass('resources/assets/sass/e-document/app.scss', 'public/templates/e-document/css')
+    .copy( 'resources/assets/templates/e-document', 'public/templates/e-document');
 
 /**
  * Admin templates
  */
-mix.js('resources/assets/js/admin/index.js', 'public/templates/admin/js')
-    .sass('resources/assets/sass/admin/index.scss', 'public/templates/admin/css');
+mix.js('resources/assets/js/admin/app.js', 'public/templates/admin/js')
+    .sass('resources/assets/sass/admin/app.scss', 'public/templates/admin/css')
+    .sass('resources/assets/sass/admin/custom.scss', 'public/templates/admin/css')
+    .copy('node_modules/admin-lte/dist/css','public/templates/admin/css')
+    .copy('node_modules/admin-lte/dist/img','public/templates/admin/img')
+    .copy('node_modules/admin-lte/plugins','public/templates/admin/plugins')
+    .copy('node_modules/icheck/skins/square/blue.png','public/templates/admin/css')
+    .copy('node_modules/icheck/skins/square/blue@2x.png','public/templates/admin/css')
+    .copy( 'resources/assets/js/admin/tag.js', 'public/templates/admin/js');
