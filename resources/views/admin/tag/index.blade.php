@@ -33,7 +33,7 @@
                             <th>@lang('admin.tag.index.table.name')</th>
                             <th>@lang('admin.tag.index.table.description')</th>
                             <th>@lang('admin.tag.index.table.slug')</th>
-                            <th style="width: 135px">@lang('admin.tag.index.table.action')</th>
+                            <th>@lang('admin.tag.index.table.action')</th>
                         </tr>
                         @if (count($tags))
                             @foreach ($tags as $tag)
