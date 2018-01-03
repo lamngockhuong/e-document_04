@@ -14,7 +14,7 @@ try {
 } catch (e) {}
 
 // Toastr js
-window.toastr = require('toastr')
+window.toastr = require('toastr');
 
 /**
  * We'll load the axios HTTP library which allows us to easily issue requests

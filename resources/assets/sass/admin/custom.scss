@@ -2,10 +2,16 @@
   tr th {
     text-align: center;
   }
+  tr th:nth-child(4) {
+    width: 135px;
+  }
   tr td form {
     display: inline;
     button {
       border: none;
     }
   }
+}
+.notification {
+  display: none;
 }

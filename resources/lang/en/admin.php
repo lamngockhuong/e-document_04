@@ -14,6 +14,7 @@ return [
         ],
     ],
     'header' => [
+        'title' => 'E-Document Control Panel',
         'logo-mini' => '<span class="logo-mini"><b>E</b>D</span>',
         'logo' => '<span class="logo-lg"><b>E</b>-Document</span>',
         'toggle-navigation' => 'Toggle navigation',

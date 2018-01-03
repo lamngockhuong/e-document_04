@@ -2,6 +2,8 @@ $(document).ready(function () {
     $('.delete-button').click(function () {
         return confirm($(this).data('mes-confirm'));
     });
+
+    execToastr();
 });
 
 function changeToSlug()
@@ -30,4 +32,27 @@ function changeToSlug()
     slug = slug.replace(/-+$/g, '');
     //In slug ra textbox có id “slug”
     document.getElementById('slug').value = slug;
+}
+
+function execToastr() {
+    var type = $('.notification').data('type');
+    var message = $('.notification').data('message');
+
+    switch(type){
+        case 'info':
+            toastr.info(message);
+            break;
+
+        case 'warning':
+            toastr.warning(message);
+            break;
+
+        case 'success':
+            toastr.success(message);
+            break;
+
+        case 'error':
+            toastr.error(message);
+            break;
+    }
 }
