@@ -44,7 +44,7 @@
                                     <td>{{ $category->slug }}</td>
                                     <td>{{ is_null($category->termTaxonomy->taxonomyParent) ? '---' : $category->termTaxonomy->taxonomyParent->term->name }}</td>
                                     <td>
-                                        <a href="{{ route('tags.edit', $category->id) }}" class="badge bg-light-blue"><i class="fa fa-edit"></i> @lang('admin.category.index.table.edit')</a>
+                                        <a href="{{ route('categories.edit', $category->id) }}" class="badge bg-light-blue"><i class="fa fa-edit"></i> @lang('admin.category.index.table.edit')</a>
                                         {!! Form::open(['route' => ['categories.destroy', 'id' => $category->id]]) !!}
                                             {{ method_field('DELETE') }}
                                             {!! Form::button('<i class="fa fa-trash"></i> ' . trans('admin.category.index.table.delete'),

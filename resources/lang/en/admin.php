@@ -42,6 +42,7 @@ return [
         'message' => [
             'create-success' => 'Create Successfully!',
             'create-error' => 'Create Error! Please try again',
+            'show-edit-error' => 'Edit Error! Please try again',
             'edit-success' => 'Edit Successfully!',
             'edit-error' => 'Edit Error! Please try again',
             'delete-success' => 'Delete Successfully!',
@@ -97,6 +98,7 @@ return [
         'message' => [
             'create-success' => 'Create Successfully!',
             'create-error' => 'Create Error! Please try again',
+            'show-edit-error' => 'Edit Error! Please try again',
             'edit-success' => 'Edit Successfully!',
             'edit-error' => 'Edit Error! Please try again',
             'delete-success' => 'Delete Successfully!',
@@ -133,10 +135,23 @@ return [
             'form' => [
                 'name' => 'Name',
                 'slug' => 'Slug',
-                'category' => 'Category',
-                'subcategory' => 'Sub Category',
+                'category' => 'Parent Category',
                 'description' => 'Description',
                 'submit' => 'Create',
+            ],
+        ],
+        'edit' => [
+            'title' => 'Edit category',
+            'page-header' => [
+                'page_title' => 'Categories',
+                'page_description' => 'Edit the category',
+            ],
+            'form' => [
+                'name' => 'Name',
+                'slug' => 'Slug',
+                'category' => 'Parent Category',
+                'description' => 'Description',
+                'submit' => 'Edit',
             ],
         ],
     ],
