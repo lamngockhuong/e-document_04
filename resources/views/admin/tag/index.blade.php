@@ -39,7 +39,7 @@
                             @foreach ($tags as $tag)
                                 <tr>
                                     <td>{{ $tag->name }}</td>
-                                    <td>{{ $tag->termtaxonomy->description }}</td>
+                                    <td>{{ $tag->termTaxonomy->description }}</td>
                                     <td>{{ $tag->slug }}</td>
                                     <td>
                                         <a href="{{ route('tags.edit', $tag->id) }}" class="badge bg-light-blue"><i class="fa fa-edit"></i> @lang('admin.tag.index.table.edit')</a>
@@ -77,5 +77,5 @@
 @endsection
 @push('script')
     {!! Html::script('templates/admin/js/app.js') !!}
-    {!! Html::script('templates/admin/js/tag.js') !!}
+    {!! Html::script('templates/admin/js/custom.js') !!}
 @endpush

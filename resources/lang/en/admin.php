@@ -93,6 +93,15 @@ return [
     ],
     'category' => [
         'title' => 'Categories',
+        'none' => 'None',
+        'message' => [
+            'create-success' => 'Create Successfully!',
+            'create-error' => 'Create Error! Please try again',
+            'edit-success' => 'Edit Successfully!',
+            'edit-error' => 'Edit Error! Please try again',
+            'delete-success' => 'Delete Successfully!',
+            'delete-error' => 'Delete Error! Please try again',
+        ],
         'index' => [
             'title' => 'Categories',
             'page-header' => [
@@ -103,6 +112,7 @@ return [
                 'name' => 'Name',
                 'description' => 'Description',
                 'slug' => 'Slug',
+                'parent' => 'Parent',
                 'action' => 'Action',
                 'no-record' => 'There are no categories',
                 'edit' => 'Edit',
@@ -116,6 +126,18 @@ return [
         ],
         'create' => [
             'title' => 'Create category',
+            'page-header' => [
+                'page_title' => 'Categories',
+                'page_description' => 'Create the category',
+            ],
+            'form' => [
+                'name' => 'Name',
+                'slug' => 'Slug',
+                'category' => 'Category',
+                'subcategory' => 'Sub Category',
+                'description' => 'Description',
+                'submit' => 'Create',
+            ],
         ],
     ],
 ];

@@ -27,7 +27,12 @@ class TermTaxonomy extends Model
         );
     }
 
-    public function childs()
+    public function taxonomyParent()
+    {
+        return $this->belongsTo(TermTaxonomy::class, 'parent');
+    }
+
+    public function children()
     {
         return $this->hasMany(TermTaxonomy::class, 'parent', 'id');
     }

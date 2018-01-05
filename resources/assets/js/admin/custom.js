@@ -4,6 +4,7 @@ $(document).ready(function () {
     });
 
     execToastr();
+    loadSubCategories();
 });
 
 function changeToSlug()
@@ -55,4 +56,21 @@ function execToastr() {
             toastr.error(message);
             break;
     }
+}
+
+function loadSubCategories() {
+    $('#category').on('change', function (e) {
+        var categoryId = e.target.value;
+        var url = $('#category-form #url').val();
+        var id = $('#category-form #subcategory-none').data('id');
+        var name = $('#category-form #subcategory-none').val();
+        url = url.replace('categoryId', categoryId);
+        $.get(url, function (data) {
+            $('#subcategory').empty();
+            $('#subcategory').append('<option value="' + id + '">' + name + '</option>');
+            $.each(data, function (index, element) {
+                $('#subcategory').append('<option value="' + element.id + '">' + element.name + '</option>');
+            });
+        });
+    });
 }

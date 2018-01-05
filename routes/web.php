@@ -17,4 +17,6 @@ Route::resource('admin', 'Admin\IndexController', ['only' => ['index']]);
 
 Route::resource('admin/categories', 'Admin\CategoryController', ['except' => ['show']]);
 
+Route::get('admin/categories/ajax/subcategory/{id}', 'Admin\CategoryController@getSubCategory')->name('categories.ajax.subcategory');
+
 Route::resource('admin/tags', 'Admin\TagController', ['except' => ['show']]);
