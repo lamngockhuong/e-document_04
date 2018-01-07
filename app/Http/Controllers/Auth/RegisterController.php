@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Auth;
 
-use App\User;
+use App\Models\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
@@ -27,7 +27,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/';
 
     /**
      * Create a new controller instance.
@@ -48,23 +48,40 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'name' => 'required|string|max:255',
+            'firstname' => 'required|string|max:100',
+            'lastname' => 'required|string|max:100',
+            'username' => 'required|string|max:30|unique:users',
             'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|min:6|confirmed',
+            'agree_term' => 'accepted',
         ]);
+    }
+
+    public function showRegistrationForm()
+    {
+        $title = trans('auth.register.title');
+        return view('auth.register', compact('title'));
     }
 
     /**
      * Create a new user instance after a valid registration.
      *
      * @param  array  $data
-     * @return \App\User
+     * @return \App\Models\User
      */
     protected function create(array $data)
     {
         return User::create([
-            'name' => $data['name'],
+            'firstname' => $data['firstname'],
+            'lastname' => $data['lastname'],
+            'username' => $data['username'],
             'email' => $data['email'],
+            'avatar' => config('setting.users_default.avatar'),
+            'free_download' => config('setting.users_default.free_download'),
+            'uploaded_count' => config('setting.users_default.uploaded_count'),
+            'wallet' => config('setting.users_default.wallet'),
+            'status' => config('setting.users_default.status'),
+            'role' => config('setting.users_default.role'),
             'password' => bcrypt($data['password']),
         ]);
     }

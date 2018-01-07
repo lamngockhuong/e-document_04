@@ -28,10 +28,12 @@ return [
     ],
 
     'users_default' => [
+        'avatar' => '',
         'free_download' => 3,
         'uploaded_count' => 0,
         'wallet' => 0,
         'status' => 0,
+        'role' => '',
     ],
 
     'pagination' => [

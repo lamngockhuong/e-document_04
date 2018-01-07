@@ -29,4 +29,11 @@ class ForgotPasswordController extends Controller
     {
         $this->middleware('guest');
     }
+
+    public function showLinkRequestForm()
+    {
+        $title = trans('auth.forgotpassword.title');
+
+        return view('auth.passwords.email', compact('title'));
+    }
 }
