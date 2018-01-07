@@ -2,7 +2,7 @@
 return [
 
     'public_view_folder' => 'e-document',
-
+    'avatar_folder' => 'images' . DIRECTORY_SEPARATOR . 'avatars',
     'terms_default' => [
         'name' => '',
         'slug' => '',
@@ -47,5 +47,10 @@ return [
     'category' => [
         'taxonomy' => 'category',
         'none' => 0,
+    ],
+
+    'user' => [
+        'status_active' => 1,
+        'status_deactive' => 0,
     ],
 ];
