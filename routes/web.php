@@ -21,4 +21,6 @@ Route::resource('admin/tags', 'Admin\TagController', ['except' => ['show']]);
 
 Route::resource('admin/users', 'Admin\UserController', ['except' => ['show']]);
 
+Route::resource('admin/documents', 'Admin\DocumentController', ['except' => ['show']]);
+
 Auth::routes();

@@ -41,14 +41,14 @@ class Document extends Model
         return $this->belongsTo(User::class);
     }
 
-    public function termtaxonomy()
+    public function termTaxonomys()
     {
         return $this->belongsToMany(
             TermTaxonomy::class,
             'term_taxonomy_documents',
-            'term_taxonomy_id',
-            'object_id'
-        );
+            'object_id',
+            'term_taxonomy_id'
+        )->withPivot('object_id');
     }
 
     public function favoritedUsers()

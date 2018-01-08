@@ -17,7 +17,7 @@
                         <i class="fa fa-angle-left pull-right"></i>
                      </span>
                 </a>
-                <ul class="treeview-menu" style="display: none;">
+                <ul class="treeview-menu">
                     <li><a href="{{ route('categories.index') }}"><i class="fa fa-circle-o"></i> @lang('admin.sidebar.category.index')</a></li>
                     <li><a href="{{ route('categories.create') }}"><i class="fa fa-circle-o"></i> @lang('admin.sidebar.category.create')</a></li>
                 </ul>
@@ -29,9 +29,21 @@
                         <i class="fa fa-angle-left pull-right"></i>
                      </span>
                 </a>
-                <ul class="treeview-menu" style="display: none;">
+                <ul class="treeview-menu">
                     <li><a href="{{ route('tags.index') }}"><i class="fa fa-circle-o"></i> @lang('admin.sidebar.tag.index')</a></li>
                     <li><a href="{{ route('tags.create') }}"><i class="fa fa-circle-o"></i> @lang('admin.sidebar.tag.create')</a></li>
+                </ul>
+            </li>
+            <li class="treeview">
+                <a href="#">
+                    <i class="fa fa-file"></i> <span>@lang('admin.sidebar.document.parent')</span>
+                    <span class="pull-right-container">
+                        <i class="fa fa-angle-left pull-right"></i>
+                     </span>
+                </a>
+                <ul class="treeview-menu">
+                    <li><a href="{{ route('documents.index') }}"><i class="fa fa-circle-o"></i> @lang('admin.sidebar.document.index')</a></li>
+                    <li><a href="{{ route('documents.create') }}"><i class="fa fa-circle-o"></i> @lang('admin.sidebar.document.create')</a></li>
                 </ul>
             </li>
             <li class="treeview">
@@ -41,7 +53,7 @@
                         <i class="fa fa-angle-left pull-right"></i>
                      </span>
                 </a>
-                <ul class="treeview-menu" style="display: none;">
+                <ul class="treeview-menu">
                     <li><a href="{{ route('users.index') }}"><i class="fa fa-circle-o"></i> @lang('admin.sidebar.user.index')</a></li>
                     <li><a href="{{ route('users.create') }}"><i class="fa fa-circle-o"></i> @lang('admin.sidebar.user.create')</a></li>
                 </ul>
