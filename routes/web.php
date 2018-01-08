@@ -18,3 +18,5 @@ Route::resource('admin', 'Admin\IndexController', ['only' => ['index']]);
 Route::resource('admin/categories', 'Admin\CategoryController', ['except' => ['show']]);
 
 Route::resource('admin/tags', 'Admin\TagController', ['except' => ['show']]);
+
+Auth::routes();
