@@ -61,4 +61,15 @@ class User extends Authenticatable
     {
         return $this->belongsToMany(Document::class, 'favorites');
     }
+
+    /**
+     * Bcrypt the user's password
+     *
+     * @param  $value
+     * @return void
+     */
+    public function setPasswordAttribute($value)
+    {
+        $this->attributes['password'] = bcrypt($value);
+    }
 }

@@ -3,6 +3,12 @@ $(document).ready(function () {
         return confirm($(this).data('mes-confirm'));
     });
 
+    if ($.fn.iCheck) {
+        $('input[type="checkbox"].flat-red').iCheck({
+            checkboxClass: 'icheckbox_flat-green'
+        });
+    }
+
     execToastr();
     loadSubCategories();
 });

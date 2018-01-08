@@ -5,6 +5,7 @@
 /public/js
 /public/templates
 /public/storage
+/public/images
 /public/mix-manifest.json
 /storage/*.key
 /storage/debugbar

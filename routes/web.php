@@ -19,4 +19,6 @@ Route::resource('admin/categories', 'Admin\CategoryController', ['except' => ['s
 
 Route::resource('admin/tags', 'Admin\TagController', ['except' => ['show']]);
 
+Route::resource('admin/users', 'Admin\UserController', ['except' => ['show']]);
+
 Auth::routes();
