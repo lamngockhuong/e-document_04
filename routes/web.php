@@ -11,16 +11,16 @@
 |
 */
 
-Route::resource('/', 'Outside\IndexController', ['only' => ['index']]);
+Route::group(['namespace' => 'Outside'], function () {
+    Route::resource('/', 'IndexController', ['only' => ['index']]);
+});
 
-Route::resource('admin', 'Admin\IndexController', ['only' => ['index']]);
-
-Route::resource('admin/categories', 'Admin\CategoryController', ['except' => ['show']]);
-
-Route::resource('admin/tags', 'Admin\TagController', ['except' => ['show']]);
-
-Route::resource('admin/users', 'Admin\UserController', ['except' => ['show']]);
-
-Route::resource('admin/documents', 'Admin\DocumentController', ['except' => ['show']]);
+Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function () {
+    Route::resource('', 'IndexController', ['only' => ['index']]);
+    Route::resource('categories', 'CategoryController', ['except' => ['show']]);
+    Route::resource('tags', 'TagController', ['except' => ['show']]);
+    Route::resource('users', 'UserController', ['except' => ['show']]);
+    Route::resource('documents', 'DocumentController', ['except' => ['show']]);
+});
 
 Auth::routes();

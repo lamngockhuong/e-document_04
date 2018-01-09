@@ -9,7 +9,6 @@
             @lang('admin.user.index.page-header.page_description')
         @endslot
         @slot('breadcrumb')
-            <li><a href="{{ route('admin.index') }}"><i class="fa fa-dashboard"></i> @lang('admin.dashboard.title')</a></li>
             <li class="active">@lang('admin.user.index.title')</li>
         @endslot
     @endcomponent

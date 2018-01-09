@@ -9,7 +9,7 @@
             @lang('admin.error.404.page-header.page_description')
         @endslot
         @slot('breadcrumb')
-            <li><a href="{{ route('admin.index') }}"><i class="fa fa-dashboard"></i> @lang('admin.dashboard.title')</a></li>
+            <li><a href="{{ route('index') }}"><i class="fa fa-dashboard"></i> @lang('admin.dashboard.title')</a></li>
             <li class="active">@lang('admin.error.404.title')</li>
         @endslot
     @endcomponent
@@ -20,7 +20,7 @@
         <div class="error-content">
             <h3><i class="fa fa-warning text-yellow"></i> @lang('admin.error.404.warning')</h3>
             <p>
-                @lang('admin.error.404.message', ['url' => route('admin.index')])
+                @lang('admin.error.404.message', ['url' => route('index')])
             </p>
         </div>
         <!-- /.error-content -->

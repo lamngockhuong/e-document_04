@@ -8,18 +8,14 @@
     <title>@lang('e-document/layout.title')</title>
     <meta name="description" content="e-document"/>
     {!! Html::style('templates/e-document/css/app.css') !!}
-    {!! Html::style('templates/e-document/css/main.css') !!}
-    {!! Html::style('templates/e-document/js/ajax/jquery.qtip.css') !!}
-    {!! Html::style('templates/e-document/js/ajax/jquery.ajax.css') !!}
-    {!! Html::script('templates/e-document/js/app.js') !!}
+    {!! Html::style('templates/e-document/css/index.css') !!}
+    {!! Html::style('templates/e-document/css/style.css') !!}
 </head>
 <body>
     @include('e-document.layouts.header')
-    @yield('content')
-    @include('e-document.layouts.footer')
-    {!! Html::script('templates/e-document/js/ajax/bootbox.min.js') !!}
-    {!! Html::script('templates/e-document/js/ajax/jquery.qtip.js') !!}
-    {!! Html::script('templates/e-document/js/ajax/jquery.ajax.js') !!}
-    {!! Html::script('templates/e-document/js/customize.js') !!}
+    <div id="container">
+        @yield('content')
+        @include('e-document.layouts.footer')
+    </div>
 </body>
 </html>

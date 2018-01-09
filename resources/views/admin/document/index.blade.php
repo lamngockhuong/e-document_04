@@ -9,7 +9,6 @@
             @lang('admin.document.index.page-header.page_description')
         @endslot
         @slot('breadcrumb')
-            <li><a href="{{ route('admin.index') }}"><i class="fa fa-dashboard"></i> @lang('admin.dashboard.title')</a></li>
             <li class="active">@lang('admin.document.index.title')</li>
         @endslot
     @endcomponent
@@ -44,7 +43,7 @@
                             <tr>
                                 <td><a href="{{ route('documents.edit', $document->id) }}">{{ $document->title }}</a></td>
                                 <td>
-                                    <img src="{{ asset(config('setting.avatar_folder') . '/' . $document->image) }}" width="100" height="100" />
+                                    <img src="{{ $document->image_url }}" width="100" height="100" />
                                 </td>
                                 <td>
                                     @foreach ($document->termTaxonomys as $termTaxonomy)

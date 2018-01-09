@@ -1,7 +1,7 @@
 <!-- Main Header -->
 <header class="main-header">
     <!-- Logo -->
-    <a href="{{ route('admin.index') }}" class="logo">
+    <a href="{{ route('index') }}" class="logo">
         <!-- mini logo for sidebar mini 50x50 pixels -->
         @lang('admin.header.logo-mini')
         <!-- logo for regular state and mobile devices -->

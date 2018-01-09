@@ -60,4 +60,13 @@ class Document extends Model
     {
         return $this->morphMany(Activity::class, 'activiable');
     }
+
+    /**
+     * Get image url
+     * @return string
+     */
+    public function getImageUrlAttribute()
+    {
+        return asset(config('setting.avatar_folder') . '/' . $this->image);
+    }
 }

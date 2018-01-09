@@ -14,7 +14,7 @@ class IndexController extends Controller
      */
     public function index()
     {
-        $title = trans('admin.dashboard.index');
+        $title = trans('admin.dashboard.title');
 
         return view('admin.index', compact('title'));
     }
