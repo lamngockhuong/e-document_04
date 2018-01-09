@@ -11,11 +11,11 @@ class TermTaxonomyDocumentsTableSeeder extends Seeder
      */
     public function run()
     {
-        $documents = \App\Models\Document::all();
+        $termTaxonomy = \App\Models\TermTaxonomy::all();
 
-        App\Models\TermTaxonomy::all()->each(function ($termtaxonomy) use ($documents) {
-            $termtaxonomy->documents()->attach(
-                $documents->random(rand(1, 3))->pluck('id')->toArray()
+        App\Models\Document::all()->each(function ($document) use ($termTaxonomy) {
+            $document->termTaxonomys()->attach(
+                $termTaxonomy->random(rand(1, 3))->pluck('id')->toArray()
             );
         });
     }
