@@ -4,6 +4,9 @@ return [
         'title' => 'E-Document',
         'login' => 'Login',
         'register' => 'Register',
+        'logout' => 'Logout',
+        'deposit' => 'Deposit',
+        'upload' => 'Upload',
         'search_placeholder' => 'Please enter the document you are looking for...',
     ],
     'footer' => [
