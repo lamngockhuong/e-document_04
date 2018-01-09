@@ -1,0 +1,2811 @@
+header {
+    background-color: #FFF;
+    border-bottom: 1px solid #e8e8e8;
+    height: 50px;
+    min-width: 1200px;
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 100;
+    transition: top .5s
+}
+
+header.up {
+    top: 0!important;
+    position: fixed!important
+}
+
+.system_info_detail {
+    color: #0aa888;
+    text-align: center;
+    padding: 10px 0
+}
+
+:-webkit-full-screen #contentDocument {
+    width: 100%;
+    height: 100%;
+    overflow-y: auto
+}
+
+.box_content {
+    width: 1180px;
+    margin: 0 auto;
+    padding: 0
+}
+
+header .box_content {
+    height: 50px
+}
+
+.ads_show {
+    overflow: hidden;
+    text-align: center;
+    clear: both;
+    width: 100%;
+    margin: 10px 0
+}
+
+.ads_show.ads_top>div {
+    display: inline-block;
+    margin: 0 15px
+}
+
+.ads_show.detail {
+    margin: 3px 0
+}
+
+.ads_show._bsNear {
+    width: auto;
+    clear: none;
+    display: inline-block
+}
+
+.ads_show.left {
+    text-align: left
+}
+
+div.icon-logo {
+    width: 80px;
+    height: 26px;
+    display: inline-block;
+    float: left;
+    margin: 12px 20px 0 0;
+    background-position: 1px -2px;
+    background-repeat: no-repeat;
+    background-size: 512px auto
+}
+
+div.icon-logo.logo-noel {
+    background-position: -80px -477px;
+    width: 130px;
+    height: 35px;
+    margin-top: 6px;
+    margin-right: 10px
+}
+
+div.icon-logo a {
+    display: block;
+    text-indent: -999px
+}
+
+.bold {
+    font-weight: 700
+}
+
+.showCate {
+    position: relative;
+    top: 20px;
+    float: left;
+    z-index: 10
+}
+
+.showCate>span {
+    width: 16px;
+    height: 16px;
+    display: inline-block;
+    background-position: 2px -84px;
+    background-repeat: no-repeat
+}
+
+.showCate:hover>span {
+    background-position: -15px -84px;
+    cursor: pointer
+}
+
+.showCate div.listCategory {
+    position: absolute;
+    top: 10px;
+    padding-top: 21px;
+    left: 0;
+    z-index: 9;
+    display: none
+}
+
+.showCate:hover div.listCategory {
+    display: block
+}
+
+.showCate div.listCategory ul.listParentCate {
+    list-style: none;
+    min-width: 200px;
+    padding: 0;
+    background-color: #fff
+}
+
+.showCate div.listCategory ul.listParentCate>li {
+    display: block;
+    padding: 0 10px 0 0;
+    margin-bottom: 10px
+}
+
+.showCate div.listCategory ul.listParentCate>li:hover {
+    background-color: #F3F3F3
+}
+
+.showCate div.listCategory ul.listParentCate>li>a:after {
+    font-family: monospace;
+    content: '›';
+    float: right;
+    font-size: 20px;
+    line-height: 10px;
+    vertical-align: top;
+    display: none;
+    color: #666
+}
+
+.showCate div.listCategory ul.listParentCate>li:hover>a:after {
+    display: inherit
+}
+
+.showCate div.listCategory ul.listParentCate>li>a {
+    display: block;
+    padding: 5px 0 5px 10px;
+    text-decoration: none;
+    border-left: 4px solid #0aa888;
+    color: #666;
+    font-family: arial;
+    font-size: 12px
+}
+
+.showCate div.listCategory ul.listParentCate>li:nth-child(4n+2)>a {
+    border-color: #6d9ebc
+}
+
+.showCate div.listCategory ul.listParentCate>li:nth-child(4n+3)>a {
+    border-color: #057ab0
+}
+
+.showCate div.listCategory ul.listParentCate>li:nth-child(4n+4)>a {
+    border-color: #7fb39b
+}
+
+.showCate div.listCategory ul.listParentCate>li:nth-child(4n+5)>a {
+    border-color: #c67466
+}
+
+.showCate div.listCategory ul.listParentCate>li:nth-child(4n+6)>a {
+    border-color: #0aa888
+}
+
+.showCate .listSub {
+    position: absolute;
+    left: 200px;
+    top: 21px;
+    min-width: 800px;
+    padding: 15px 3px 10px 20px;
+    height: 100%;
+    max-height: 320px;
+    z-index: 9;
+    background-color: #111;
+    display: none;
+    overflow: hidden
+}
+
+.showCate .listSub:hover {
+    display: block
+}
+
+.showCate .listSub * {
+    color: #f1f1f1;
+    font-size: 13px
+}
+
+.showCate .listSub>h2 {
+    font-size: 22px;
+    font-weight: 400;
+    margin-bottom: 10px
+}
+
+.showCate .listSub>div {
+    float: left;
+    width: 200px;
+    padding: 0 0 0 20px
+}
+
+.showCate .listSub div.sub_nav_1 {
+    padding-left: 0
+}
+
+.showCate .listSub div.sub_nav_2,
+.showCate .listSub div.sub_nav_3 {
+    border-left: 1px solid transparent
+}
+
+.showCate .listSub>div ul {
+    width: 100%
+}
+
+.showCate .listSub>div ul li {
+    float: left;
+    width: 100%;
+    margin-bottom: 10px
+}
+
+.showCate .listSub>div ul li a {
+    display: inline-block;
+    padding: 5px 10px;
+    line-height: 1.5
+}
+
+.showCate .listSub>div ul li:hover a {
+    background-color: rgba(0, 0, 0, .2);
+    border-radius: 2px
+}
+
+.headerRight {
+    float: right;
+    margin-left: 20px;
+    height: 50px
+}
+
+.searchBox {
+    float: left;
+    border: 1px solid #DDD;
+    padding: 2px 24px 2px 2px;
+    border-radius: 3px;
+    position: relative;
+    margin-top: 7px
+}
+
+.searchBox .selectOption {
+    display: inline-block;
+    margin-right: 5px;
+    border-right: 1px solid #DDD;
+    padding: 2px 5px;
+    float: left;
+    height: 25px;
+    line-height: 25px
+}
+
+.searchBox .selectOption>a {
+    font-size: 12px;
+    color: #aaa;
+    display: block;
+    line-height: 25px
+}
+
+.searchBox .selectOption>a:after {
+    content: '';
+    border: 5px solid transparent;
+    border-top-color: #666;
+    float: right;
+    margin: 9px 5px 0 10px
+}
+
+.searchBox .selectOption ul {
+    position: absolute;
+    top: 31px;
+    padding-top: 5px;
+    left: -1px;
+    font-size: 13px;
+    display: none;
+    z-index: 9
+}
+
+.searchBox .selectOption:hover ul {
+    display: block
+}
+
+.searchBox .selectOption ul li {
+    line-height: 20px;
+    border-left: 1px solid #DDD;
+    border-right: 1px solid #DDD;
+    background-color: #fff
+}
+
+.searchBox .selectOption ul li:first-child {
+    border-top: 1px solid #DDD
+}
+
+.searchBox .selectOption ul li:last-child {
+    border-bottom: 1px solid #DDD
+}
+
+.searchBox .selectOption ul li a {
+    color: #666;
+    display: block;
+    padding: 5px 10px;
+    white-space: nowrap
+}
+
+.searchBox .selectOption ul li:hover {
+    background-color: #00a888
+}
+
+.searchBox .selectOption ul li:hover a {
+    color: #fff
+}
+
+.searchBox .selectOption ul li.active a {
+    display: none
+}
+
+.searchBox input {
+    border-color: transparent;
+    line-height: 25px;
+    min-width: 350px;
+    height: 25px;
+    float: left
+}
+
+.searchBox>a {
+    position: absolute;
+    right: 3px;
+    top: 8px
+}
+
+.searchBox>a>i {
+    background-position: -73px -83px;
+    width: 20px;
+    height: 20px
+}
+
+.searchBox>a:hover>i {
+    background-position: -53px -83px
+}
+
+.autocomplete-suggestion {
+    line-height: 1.5;
+    border-bottom: 1px solid #ddd;
+    padding: 7px 5px 7px 10px;
+    cursor: pointer
+}
+
+.autocomplete-suggestion i {
+    float: right;
+    margin-top: 4px
+}
+
+.autocomplete-selected,
+.autocomplete-suggestion:hover {
+    background-color: #00a888;
+    color: #fff;
+    border-bottom-color: transparent
+}
+
+.headerRight .mainBox {
+    padding: 10px 10px 0;
+    border-left: 1px solid #f1f1f1;
+    border-right: 1px solid #f1f1f1;
+    float: left;
+    height: 50px;
+    box-sizing: border-box;
+    margin-left: 15px;
+    width: 285px;
+    white-space: nowrap;
+}
+
+.headerRight .mainBox a {
+    display: inline-block;
+    width: 90px;
+    height: 30px;
+    line-height: 32px;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 13px;
+    font-weight: 700;
+    margin: 0 10px;
+    transition: box-shadow .5s
+}
+
+.headerRight .mainBox a.btn_upload {
+    width: 130px;
+    width: 130px!important;
+}
+
+.headerRight .mainBox a:hover {
+    box-shadow: inset 0 0 10px #ccc;
+}
+
+.headerRight .landBox {
+    float: left;
+    height: 50px;
+    border-right: 1px solid #f1f1f1;
+    width: 58px;
+    text-align: center
+}
+
+.headerRight .landBox span {
+    display: inline-block;
+    width: 28px;
+    height: 28px;
+    background-position: -94px -82px;
+    margin-top: 10px
+}
+
+.headerRight .landBox span:hover {
+    background-position: -122px -81px
+}
+
+.headerRight .userBox {
+    float: left;
+    height: 50px;
+    padding: 10px 5px 0 20px;
+    box-sizing: border-box
+}
+
+.headerRight .userBox>div {
+    float: left;
+    position: relative
+}
+
+.headerRight .userBox a.btn {
+    width: 65px;
+    height: 28px;
+    text-align: center;
+    line-height: 30px;
+    margin: 0 5px;
+    float: left;
+    font-size: 11px
+}
+
+.headerRight .userBox>div:hover>a.btn {
+    color: #00a888;
+    border-color: #00a888
+}
+
+.headerRight .userBox .userLoginBox {
+    float: left;
+    position: relative
+}
+
+.headerRight .userBox .userLoginBox a.use_img {
+    width: 33px;
+    height: 33px;
+    float: left;
+    overflow: hidden;
+    margin-right: 5px;
+    border-radius: 2px;
+    background-color: #EEE
+}
+
+.headerRight .userBox .userLoginBox a.use_img img {
+    max-width: 100%
+}
+
+.headerRight .userBox .userLoginBox a.use_name {
+    max-width: 80px;
+    overflow: hidden;
+    white-space: nowrap;
+    line-height: 33px;
+    color: #333;
+    text-overflow: ellipsis;
+    margin: 0;
+    padding: 0;
+    font-weight: 700;
+    font-size: 13px;
+    float: left
+}
+
+.headerRight .userBox .userNotifi {
+    float: left;
+    padding-top: 6px;
+    position: relative
+}
+
+.headerRight .userBox .userNotifi>a {
+    background-position: -34px -84px;
+    width: 16px;
+    height: 23px;
+    margin: 0 1px 0 10px
+}
+
+.headerRight .userBox .userNotifi>span {
+    position: relative;
+    font-size: 11px;
+    padding: 3px;
+    font-weight: 700;
+    width: 20px;
+    display: inline-block;
+    text-align: center
+}
+
+.headerRight .userBox .userNotifi span i {
+    position: absolute;
+    border: 3px solid transparent;
+    border-right-color: #00a888;
+    top: 6px;
+    left: -6px;
+    z-index: 9
+}
+
+.headerRight .userBox .box_login {
+    position: absolute;
+    top: 30px;
+    right: -21px;
+    z-index: 99;
+    padding-top: 10px
+}
+
+.headerRight .userBox .box_login>div {
+    background-color: #fff;
+    width: 200px;
+    padding: 0 10px 10px;
+    border: 1px solid #ddd;
+    border-radius: 0 0 3px 3px;
+    box-shadow: 0 4px 6px #333
+}
+
+.headerRight .userBox .box_login>div:before {
+    content: '';
+    border-top: 1px solid #ddd;
+    border-left: 1px solid #ddd;
+    width: 10px;
+    height: 10px;
+    display: inline-block;
+    position: absolute;
+    top: 5px;
+    right: 50px;
+    background-color: #fff;
+    transform: rotate(45deg)
+}
+
+.headerRight .userBox .box_login>div>p {
+    margin: 10px 0;
+    overflow: hidden;
+    color: #333;
+    font-size: 11px;
+    line-height: 20px
+}
+
+.headerRight .userBox .box_login>div>p i.i_idvg {
+    width: 61px;
+    height: 20px;
+    background-position: -393px -219px;
+    margin-left: 5px;
+    vertical-align: top
+}
+
+.headerRight .userBox .box_login>div>p a {
+    display: block;
+    width: 100%;
+    height: 30px
+}
+
+.headerRight .userBox .box_login>div>p button {
+    background-color: #00a888;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    display: block;
+    height: 30px;
+    line-height: 25px;
+    margin: 0;
+    width: 100%
+}
+
+.headerRight .userBox .box_login>div>p:last-child {
+    margin-bottom: 0;
+    height: 20px
+}
+
+.headerRight .userBox .box_login>div>p a.forget_pas {
+    text-align: center;
+    color: #00a888
+}
+
+.headerRight .userBox .box_login>div>p a.logSocial span {
+    line-height: 30px;
+    color: #fff;
+    font-size: 11px;
+    text-align: center;
+    display: block;
+    margin-left: 30px
+}
+
+.headerRight .userBox .box_login>div>p a.logSocial.facebook {
+    background-color: #2946a2
+}
+
+.headerRight .userBox .box_login>div>p a.logSocial.facebook span {
+    background-color: #314faf
+}
+
+.headerRight .userBox .box_login>div>p a.logSocial.facebook i {
+    width: 8px;
+    height: 18px;
+    float: left;
+    background-position: -357px -219px;
+    margin-left: 11px;
+    margin-top: 6px
+}
+
+.headerRight .userBox .box_login>div>p a.logSocial.google {
+    background-color: #ce3b2d
+}
+
+.headerRight .userBox .box_login>div>p a.logSocial.google span {
+    background-color: #e84c3d
+}
+
+.headerRight .userBox .box_login>div>p a.logSocial.google i {
+    width: 14px;
+    height: 22px;
+    background-position: -373px -218px;
+    margin-top: 4px;
+    margin-left: 8px;
+    float: left
+}
+
+.userLoginBox>div i,
+.userNotifi>div>i {
+    position: absolute;
+    height: 8px;
+    transform: rotate(45deg)
+}
+
+.headerRight .userBox .box_login>div>p input[type=password],
+.headerRight .userBox .box_login>div>p input[type=text] {
+    line-height: 25px;
+    width: 100%;
+    border: 1px solid #ddd;
+    color: #333;
+    box-sizing: border-box;
+    padding: 0 5px;
+    font-size: 12px;
+    border-radius: 3px
+}
+
+.headerRight .userBox .box_login>div>p input[type=checkbox] {
+    float: left;
+    margin-top: 3px;
+    margin-right: 2px
+}
+
+.userLoginBox>div {
+    position: absolute;
+    top: 30px;
+    left: -21px;
+    padding-top: 10px;
+    display: none;
+    z-index: 99
+}
+
+.userLoginBox:hover>div {
+    display: block
+}
+
+.userLoginBox>div ul {
+    overflow: hidden;
+    border: 1px solid #ddd
+}
+
+.userLoginBox>div ul li {
+    float: left;
+    width: 200px
+}
+
+.userLoginBox>div ul li a {
+    display: block;
+    padding: 10px;
+    font-size: 13px;
+    color: #333;
+    background-color: #f9f9f9
+}
+
+.userLoginBox>div i,
+.userLoginBox>div ul li:first-child a,
+.userLoginBox>div ul li:last-child a,
+.userNotifi>div>h4,
+.userNotifi>div>p {
+    background-color: #fff
+}
+
+.userLoginBox>div ul li a span {
+    color: #00a888;
+    font-weight: 700;
+    margin-left: 3px
+}
+
+.userLoginBox>div ul li:hover a,
+.userLoginBox>div ul li:hover span {
+    color: #00a888
+}
+
+.userLoginBox>div ul li a:after {
+    font-family: monospace;
+    float: right;
+    font-size: 20px;
+    line-height: 10px;
+    vertical-align: top;
+    color: #666
+}
+
+.userLoginBox>div i {
+    top: 6px;
+    left: 32px;
+    width: 8px;
+    display: inline-block;
+    border: 1px solid #ddd;
+    border-bottom-color: transparent;
+    border-right-color: transparent
+}
+
+.userNotifi p b {
+    font-size: 14px;
+    line-height: 20px;
+    color: #666
+}
+
+.userNotifi>div {
+    position: absolute;
+    right: -10px;
+    top: 25px;
+    padding-top: 15px;
+    width: 300px;
+    display: none;
+    z-index: 99
+}
+
+.userNotifi>div>h4 {
+    line-height: 50px;
+    text-align: center;
+    border-left: 1px solid #ddd;
+    border-right: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+    font-weight: 400
+}
+
+.userNotifi:hover>div {
+    display: block
+}
+
+.userNotifi>div>p {
+    padding: 0 10px;
+    line-height: 30px;
+    overflow: hidden;
+    border: 1px solid #ddd;
+    text-align: center
+}
+
+.userNotifi>div>p.userNotifi_title {
+    border-bottom: none;
+    text-align: left;
+    text-transform: uppercase;
+    background-color: #f9f9f9;
+    padding: 1px
+}
+
+.userNotifi>div>p.userNotifi_title b {
+    padding-left: 9px
+}
+
+.userNotifi>div>p a {
+    color: #00a888;
+    font-size: 14px
+}
+
+.userNotifi>div>p:last-child:hover {
+    background-color: #00a888
+}
+
+.userNotifi>div>p:last-child:hover a {
+    color: #fff
+}
+
+.userNotifi>div ul {
+    border: 1px solid #ddd;
+    overflow: hidden;
+    background-color: #fff;
+    border-bottom: none;
+    border-top: none
+}
+
+.userNotifi>div ul li {
+    padding: 5px 10px 10px;
+    width: 100%;
+    float: left;
+    box-sizing: border-box;
+    font-size: 13px;
+    line-height: 1.5;
+    color: #333;
+    border-bottom: 1px solid #EEE
+}
+
+.userNotifi>div ul li a {
+    display: inline;
+    font-size: 13px;
+    line-height: 1.5em
+}
+
+.userNotifi>div ul li a span {
+    display: inline;
+    line-height: 1.5em;
+    color: #333;
+    font-size: 12px
+}
+
+.userNotifi>div ul li .htu_notifi_time {
+    color: #999;
+    margin-top: 5px;
+    font-size: 11px;
+    font-weight: 700
+}
+
+.userNotifi>div ul li a span.highlightGreen {
+    color: #00a888;
+    font-weight: 700
+}
+
+.userNotifi>div ul li .highlight {
+    color: #ff722a;
+    font-weight: 700
+}
+
+.userNotifi>div ul li a p {
+    font-size: 12px;
+    margin-top: 10px
+}
+
+.userNotifi>div ul li:hover * {
+    color: #fff!important
+}
+
+.userNotifi>div ul li:hover {
+    background-color: #00a888;
+    color: #fff
+}
+
+.userNotifi>div ul li:hover a {
+    border-color: transparent
+}
+
+.userNotifi>div ul li:hover span {
+    color: #fff
+}
+
+.userNotifi>div>i {
+    top: 11px;
+    right: 14px;
+    width: 8px;
+    display: inline-block;
+    border: 1px solid #ddd;
+    background-color: #f9f9f9;
+    border-bottom-color: transparent;
+    border-right-color: transparent;
+    z-index: 10
+}
+
+.barFixRight {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    width: 40px;
+    border-left: 1px solid #ddd;
+    z-index: 100;
+    background-color: #fff;
+    padding-top: 135px
+}
+
+.barFixRight.show {
+    width: 240px;
+    padding-top: 0
+}
+
+.barFixRight>a {
+    display: block;
+    color: #999;
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 11px;
+    line-height: 1.3em
+}
+
+.barFixRight.show>a {
+    width: 40px
+}
+
+.barFixRight>a.add_money i {
+    width: 26px;
+    height: 26px;
+    background-position: -156px -85px;
+    margin-bottom: 5px
+}
+
+.barFixRight>a.login_open {
+    display: none
+}
+
+@media screen and (max-width:1200px) {
+    .barFixRight>a.login_open {
+        display: block
+    }
+}
+
+.barFixRight>a.login_open i {
+    background-position: -21px -186px;
+    width: 24px;
+    height: 22px;
+    margin-bottom: 5px
+}
+
+.barFixRight>a.login_open:hover i {
+    background-position: -263px -214px
+}
+
+.barFixRight>a.active,
+.barFixRight>a:hover {
+    color: #00a888
+}
+
+.barFixRight>a.add_money:hover i {
+    background-position: -190px -85px
+}
+
+.barFixRight>a.add_mart,
+.barFixRight>a.use_viewed {
+    position: relative
+}
+
+.barFixRight>a.add_mart i {
+    width: 30px;
+    height: 30px;
+    background-position: -222px -81px;
+    margin-bottom: 5px
+}
+
+.barFixRight>a.add_mart:hover i {
+    background-position: -254px -82px
+}
+
+.barFixRight>a.add_mart>span,
+.barFixRight>a.use_viewed>span {
+    position: absolute;
+    top: -7px;
+    left: 3px;
+    width: 18px;
+    height: 18px;
+    text-align: center;
+    line-height: 18px;
+    background-color: red;
+    color: #fff;
+    border-radius: 20px;
+    font-weight: 700;
+    transition: transform 2s;
+    font-size: 11px
+}
+
+.barFixRight>a.use_viewed>span {
+    background-color: #fa0
+}
+
+.barFixRight>a.box_RFD,
+.barFixRight>a.box_top {
+    background-color: #00a888;
+    border-radius: 2px;
+    box-sizing: border-box
+}
+
+.barFixRight>a.add_mart>span.rotate {
+    transform: rotate(720deg)
+}
+
+.barFixRight>a.use_viewed i {
+    width: 33px;
+    height: 20px;
+    background-position: -295px -85px;
+    margin-bottom: 5px
+}
+
+.barFixRight>a.use_viewed.active i,
+.barFixRight>a.use_viewed:hover i {
+    background-position: -329px -85px
+}
+
+.barFixRight>a.box_RFD {
+    margin: 5px;
+    padding: 8px 0;
+    color: #fff
+}
+
+.barFixRight>a.box_top {
+    margin: 10px 5px 5px;
+    padding: 3px 0
+}
+
+.barFixRight.show>a.box_RFD,
+.barFixRight.show>a.box_top {
+    width: 30px
+}
+
+.barFixRight>a.box_top i {
+    width: 23px;
+    height: 22px;
+    background-position: -364px -83px
+}
+
+.barFixRight>a.back_to_top {
+    position: absolute;
+    bottom: 20px;
+    width: 100%
+}
+
+.barFixRight.show>a.back_to_top {
+    width: 40px
+}
+
+.barFixRight>a.back_to_top i {
+    width: 23px;
+    height: 21px;
+    background-position: -408px 0
+}
+
+.barFixRight>a.close_box {
+    text-indent: -9999px;
+    cursor: pointer;
+    width: 25px;
+    height: 25px;
+    display: none;
+    background: url(../images/bg_icon.png) -345px -276px no-repeat;
+    outline: 0;
+    margin-top: 15px;
+    margin-left: 8px
+}
+
+.barFixRight.show>a.close_box {
+    display: block
+}
+
+@media screen and (max-height:520px) {
+    .barFixRight>a.back_to_top {
+        display: none
+    }
+}
+
+.boxFillData {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 200px;
+    height: 100%;
+    background-color: #fff;
+    z-index: 101;
+    display: none
+}
+
+.boxFillData:not(#view)>div {
+    width: 100%;
+    box-sizing: border-box;
+    padding-top: 20px
+}
+
+.boxFillData>div>p {
+    text-align: center;
+    margin: 5px 0;
+    color: #fa833e;
+    font-size: 13px;
+    line-height: 18px
+}
+
+.boxFillData>div>p em.i_rfd {
+    background: url(../images/icon_RFD.png) no-repeat;
+    width: 74px;
+    height: 85px;
+    display: inline-block
+}
+
+.boxFillData>div>p em.i_topMonth {
+    background: url(../images/icon_book.png) no-repeat;
+    width: 102px;
+    height: 113px;
+    display: inline-block
+}
+
+.cboxIframe,
+.cboxPhoto {
+    display: block;
+    border: 0
+}
+
+.boxFillData>div>p span {
+    font-size: 25px;
+    font-weight: 400;
+    margin-right: 3px;
+    position: relative;
+    top: 2px
+}
+
+.boxFillData>div>p a {
+    padding: 8px 35px;
+    border: 1px solid #fa833e;
+    border-radius: 3px;
+    color: #fa833e;
+    margin: 0 20px;
+    white-space: nowrap
+}
+
+.boxFillData>div>p a:hover {
+    border: 1px solid #00a888;
+    color: #00a888
+}
+
+.boxFillData>ul>li {
+    float: left;
+    width: 100%;
+    overflow: hidden
+}
+
+.boxFillData>ul li>p {
+    color: #F7752A;
+    margin: 10px 0;
+    font-size: 15px
+}
+
+.boxFillData>ul ul li {
+    float: left;
+    width: 100%;
+    margin-bottom: 10px
+}
+
+.boxFillData>ul ul li>a {
+    float: left;
+    width: 50px;
+    height: 50px;
+    margin-right: 10px;
+    overflow: hidden;
+    border-radius: 3px
+}
+
+.boxFillData>ul ul li>a img {
+    max-width: 100%
+}
+
+.boxFillData>ul ul li>div {
+    overflow: hidden
+}
+
+.boxFillData>ul ul li>div>a {
+    margin-bottom: 10px;
+    float: left;
+    color: #00a888;
+    font-size: 13px;
+    width: 140px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap
+}
+
+.boxFillData>ul ul li>div>p {
+    color: #aaa;
+    clear: both;
+    font-size: 12px;
+    line-height: 1.5em
+}
+
+#cboxCurrent,
+#cboxTitle {
+    bottom: 4px;
+    color: #949494;
+    position: absolute
+}
+
+.boxFillData#top>ul>li:first-child ul.topMonth li>div>a {
+    margin-bottom: 0
+}
+
+#cboxOverlay,
+#cboxWrapper,
+#colorbox {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 9999;
+    overflow: hidden
+}
+
+#cboxOverlay {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: #efefef
+}
+
+#cboxBottomLeft,
+#cboxMiddleLeft {
+    clear: left
+}
+
+#cboxContent {
+    position: relative;
+    background: #fff;
+    overflow: hidden
+}
+
+#cboxTitle {
+    margin: 0;
+    left: 0;
+    text-align: center;
+    width: 100%
+}
+
+#cboxLoadingGraphic,
+#cboxLoadingOverlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%
+}
+
+.cboxPhoto {
+    float: left;
+    margin: auto;
+    max-width: none
+}
+
+.cboxIframe {
+    width: 100%;
+    height: 100%;
+    background: #fff
+}
+
+#cboxContent,
+#cboxLoadedContent,
+#colorbox {
+    box-sizing: content-box;
+    -moz-box-sizing: content-box;
+    -webkit-box-sizing: content-box
+}
+
+#colorbox {
+    outline: 0;
+    border-top: 3px solid #00a888;
+    background-color: #fff
+}
+
+#cboxBottomLeft,
+#cboxBottomRight,
+#cboxTopLeft,
+#cboxTopRight {
+    width: 10px;
+    height: 10px
+}
+
+#cboxMiddleLeft,
+#cboxMiddleRight {
+    width: 10px
+}
+
+#cboxBottomCenter,
+#cboxTopCenter {
+    height: 10px
+}
+
+#cboxError {
+    padding: 50px;
+    border: 1px solid #ccc
+}
+
+#cboxLoadedContent {
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
+    margin-bottom: 0
+}
+
+#cboxCurrent {
+    left: 58px
+}
+
+#cboxClose,
+#cboxNext,
+#cboxPrevious,
+#cboxSlideshow {
+    cursor: pointer;
+    border: 0;
+    padding: 0;
+    margin: 0;
+    overflow: visible;
+    width: auto;
+    background: 0 0
+}
+
+#cboxClose:active,
+#cboxNext:active,
+#cboxPrevious:active,
+#cboxSlideshow:active {
+    outline: 0
+}
+
+#cboxClose {
+    text-indent: -9999px;
+    position: absolute;
+    cursor: pointer;
+    width: 25px;
+    height: 25px;
+    display: block;
+    top: 10px;
+    right: 10px;
+    background: url(../images/bg_icon.png) -345px -276px no-repeat;
+    outline: 0
+}
+
+.cboxIE #cboxBottomCenter,
+.cboxIE #cboxBottomLeft,
+.cboxIE #cboxBottomRight,
+.cboxIE #cboxMiddleLeft,
+.cboxIE #cboxTopCenter,
+.cboxIE #cboxTopLeft,
+.cboxIE #cboxTopRight,
+.cboxIE6 #cboxTopLeft {
+    /*background: url(images/ie6/borderTopLeft.html)*/
+}
+
+.cboxIE6 #cboxTopCenter {
+    /*background: url(images/ie6/borderTopCenter.html)*/
+}
+
+.cboxIE6 #cboxTopRight {
+    /*background: url(images/ie6/borderTopRight.html)*/
+}
+
+.cboxIE6 #cboxBottomLeft {
+    /*background: url(images/ie6/borderBottomLeft.html)*/
+}
+
+.cboxIE6 #cboxBottomCenter {
+    /*background: url(images/ie6/borderBottomCenter.html)*/
+}
+
+.cboxIE6 #cboxBottomRight {
+    /*background: url(images/ie6/borderBottomRight.html)*/
+}
+
+.cboxIE6 #cboxMiddleLeft {
+    /*background: url(images/ie6/borderMiddleLeft.html)*/
+}
+
+.cboxIE6 #cboxMiddleRight {
+    /*background: url(images/ie6/borderMiddleRight.html)*/
+}
+
+.bg_404,
+.frm_login>h1>a {
+    background-repeat: no-repeat
+}
+
+.clearfix:after,
+.clearfix:before {
+    display: table;
+    content: "";
+    line-height: 0
+}
+
+.clearfix:after {
+    clear: both
+}
+
+.bg_transparent {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: #f8f8f8;
+    z-index: 100;
+    opacity: .9
+}
+
+.boxAddMoney,
+.boxAddMoney_notLogin {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 101
+}
+
+.boxAddMoney .box_AddMoney {
+    width: 670px;
+    min-height: 500px;
+    background-color: #fff;
+    margin: 20px auto 0;
+    box-shadow: 0 0 5px #999;
+    padding: 20px 65px;
+    box-sizing: content-box;
+    position: relative
+}
+
+.box_AddMoney>h3 {
+    margin-bottom: 20px;
+    overflow: hidden
+}
+
+.boxAddMoney_notLogin .boxAddMoney_content>a,
+.box_AddMoney>a {
+    position: absolute;
+    top: 0;
+    right: 15px;
+    font-size: 40px;
+    font-family: "Times New Roman";
+    color: #666
+}
+
+.box_AddMoney>ul {
+    overflow: hidden;
+    padding-bottom: 15px
+}
+
+.box_AddMoney>ul li {
+    float: left;
+    width: 110px;
+    margin-right: 30px
+}
+
+.box_AddMoney>ul li:last-child {
+    margin-right: 0
+}
+
+.box_AddMoney>ul li a {
+    display: block;
+    border: 1px solid #00a888;
+    border-radius: 3px;
+    text-align: center;
+    padding: 10px 0
+}
+
+.box_AddMoney>ul li a i {
+    height: 41px;
+    margin-bottom: 10px
+}
+
+.box_AddMoney>ul li a i.i_m_mb {
+    width: 51px;
+    background-position: -2px -271px
+}
+
+.box_AddMoney>ul li a.active i.i_m_mb,
+.box_AddMoney>ul li:hover a i.i_m_mb {
+    background-position: -2px -314px
+}
+
+.box_AddMoney>ul li a i.i_m_sms {
+    width: 39px;
+    background-position: -58px -271px
+}
+
+.box_AddMoney>ul li a.active i.i_m_sms,
+.box_AddMoney>ul li:hover a i.i_m_sms {
+    background-position: -58px -314px
+}
+
+.box_AddMoney>ul li a i.i_m_atm {
+    width: 35px;
+    background-position: -106px -271px
+}
+
+.box_AddMoney>ul li a.active i.i_m_atm,
+.box_AddMoney>ul li:hover a i.i_m_atm {
+    background-position: -106px -314px
+}
+
+.box_AddMoney>ul li a i.i_m_bk {
+    width: 33px;
+    background-position: -152px -271px
+}
+
+.box_AddMoney>ul li a.active i.i_m_bk,
+.box_AddMoney>ul li:hover a i.i_m_bk {
+    background-position: -152px -314px
+}
+
+.box_AddMoney>ul li a i.i_m_visa {
+    width: 51px;
+    background-position: -189px -271px
+}
+
+.box_AddMoney>ul li a.active i.i_m_visa,
+.box_AddMoney>ul li:hover a i.i_m_visa {
+    background-position: -189px -314px
+}
+
+.box_AddMoney>ul li a span {
+    color: #00a888;
+    clear: both;
+    display: block;
+    font-size: 12px
+}
+
+.box_AddMoney>ul li a.active,
+.box_AddMoney>ul li:hover a {
+    background-color: #00a888;
+    position: relative
+}
+
+.box_AddMoney>ul li a.active span,
+.box_AddMoney>ul li:hover a span {
+    color: #fff
+}
+
+.box_AddMoney>ul li a.active:after {
+    content: '';
+    position: absolute;
+    border: 10px solid transparent;
+    border-top-color: #00a888;
+    left: 45px;
+    bottom: -20px
+}
+
+.from_login_user form p label {
+    line-height: 15px!important
+}
+
+.from_login_user .frm_login form input[type=password],
+.from_login_user .frm_login form input[type=text] {
+    padding: 2px 22px 2px 15px;
+    margin-bottom: 5px;
+    font-size: 14px
+}
+
+.boxAddMoney_content>h4 {
+    color: #00a888;
+    padding: 10px 0 15px;
+    border-bottom: 1px solid #ddd;
+    font-size: 20px;
+    font-weight: 400;
+    margin-bottom: 15px
+}
+
+.boxAddMoney_content#mobile>div {
+    overflow: hidden
+}
+
+.boxAddMoney_content>div>img {
+    float: right;
+    margin-left: 10px
+}
+
+.boxAddMoney_content#mobile>div>div {
+    overflow: hidden
+}
+
+.boxAddMoney_content>div>div>a {
+    float: left;
+    text-align: center;
+    padding: 0 5px;
+    width: 33%;
+    box-sizing: border-box
+}
+
+.boxAddMoney_content>div>div>a i {
+    height: 30px;
+    display: block;
+    margin: 0 auto
+}
+
+.boxAddMoney_content>div>div>a i.mobifone {
+    width: 97px;
+    background-position: -231px -185px
+}
+
+.boxAddMoney_content>div>div>a i.vinaphone {
+    width: 86px;
+    background-position: -329px -185px
+}
+
+.boxAddMoney_content>div>div>a i.viettel {
+    width: 43px;
+    background-position: -421px -186px
+}
+
+.boxAddMoney_content>div>div>a input[type=radio] {
+    display: inline-block
+}
+
+.boxAddMoney_content>div>div>p {
+    margin-top: 10px;
+    float: left;
+    width: 100%
+}
+
+.boxAddMoney_content>div>div>p input[type=text],
+.text_input>a {
+    width: 300px;
+    border: 1px solid #999;
+    border-radius: 3px;
+    line-height: 27px;
+    padding: 0 5px;
+    color: #666
+}
+
+.boxAddMoney_content a.confirm {
+    display: block;
+    background-color: #00a888;
+    color: #fff;
+    line-height: 30px;
+    border-radius: 3px;
+    text-align: center;
+    width: 310px;
+    margin-top: 10px
+}
+
+.text_input>a {
+    font-size: 13px;
+    background-color: #f8f8f8
+}
+
+.boxAddMoney_content>div>div>p input[name=txt_security] {
+    width: 100px;
+    text-align: center;
+    float: left
+}
+
+.capcha_login_user input[name=txt_security] {
+    width: 120px!important;
+    text-align: center;
+    float: left;
+    height: 34px
+}
+
+.boxAddMoney_content>div>div>p .i_reload,
+.capcha_login_user .i_reload {
+    width: 31px;
+    height: 19px;
+    background-size: 256px;
+    background-position: -201px -65px;
+    float: left
+}
+
+.capcha_login_user .img_security {
+    margin-left: 25px;
+    margin-top: 8px;
+    float: left;
+    display: inline-block
+}
+
+.capcha_login_user .i_reload {
+    margin-top: 8px;
+    margin-left: 25px
+}
+
+.boxAddMoney_content>div>div>p .img_security {
+    margin-left: 5px;
+    margin-top: 5px;
+    float: left;
+    display: inline-block
+}
+
+.boxAddMoney_content>div>div>p .i_reload {
+    margin-top: 5px;
+    margin-left: 10px
+}
+
+.boxAddMoney_content>div>div>p.note {
+    color: red;
+    font-style: italic;
+    font-size: 12px
+}
+
+.boxAddMoney_content>div>div>p .btn_submit {
+    display: block;
+    background-color: #fa0;
+    color: #fff;
+    line-height: 35px;
+    border-radius: 3px;
+    text-align: center;
+    width: 310px;
+    margin-bottom: 25px
+}
+
+.boxAddMoney_content>p {
+    font-size: 13px;
+    line-height: 1.5
+}
+
+.boxAddMoney_content>p:before {
+    content: '•';
+    margin-right: 5px;
+    color: #00a888;
+    font-size: 15px
+}
+
+.boxAddMoney_content>p a {
+    display: inline-block;
+    color: #00a888;
+    font-size: 13px;
+    font-weight: 700
+}
+
+.boxAddMoney_content>h3 {
+    color: #999;
+    font-size: 35px;
+    margin-bottom: 20px;
+    font-weight: 400
+}
+
+.boxAddMoney_content>h3 span {
+    color: #fa0
+}
+
+.boxAddMoney_content select {
+    padding: 0;
+    width: 310px;
+    height: 30px;
+    background-color: #f8f8f8;
+    border-radius: 3px;
+    color: #666
+}
+
+.boxAddMoney_user {
+    position: absolute;
+    top: 0;
+    left: 802px;
+    background-color: #fff;
+    padding: 15px 10px;
+    width: 185px
+}
+
+.boxAddMoney_user>a {
+    float: left;
+    width: 50px;
+    height: 50px;
+    background-color: #ccc;
+    margin-right: 10px
+}
+
+.boxAddMoney_user>a img {
+    max-width: 100%
+}
+
+.boxAddMoney_user>div {
+    overflow: hidden
+}
+
+.boxAddMoney_user>div p {
+    margin: 5px 0;
+    color: #999;
+    font-size: 11px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden
+}
+
+.boxAddMoney_user>div p:nth-child(1) {
+    font-size: 14px;
+    color: #333
+}
+
+.boxAddMoney_user>div p a,
+.boxAddMoney_user>p span {
+    color: #00a888
+}
+
+.boxAddMoney_user>p {
+    font-size: 13px;
+    line-height: 1.5
+}
+
+.boxAddMoney_user>p.line_space {
+    padding-top: 10px;
+    margin-top: 10px;
+    border-top: 1px solid #ddd
+}
+
+.boxAddMoney_content input[type=text] {
+    color: #666
+}
+
+.boxAddMoney_content .text_input {
+    position: relative;
+    cursor: pointer;
+    margin: 10px 0 0
+}
+
+.boxAddMoney_notLogin {
+    background-color: #fff;
+    padding: 20px 30px;
+    top: 65px;
+    width: 740px
+}
+
+.boxAddMoney_notLogin .boxAddMoney_content>h4 {
+    height: 40px
+}
+
+.boxAddMoney_notLogin .boxAddMoney_content>h4>a {
+    float: left;
+    line-height: 26px;
+    padding-bottom: 14px;
+    border-bottom: 2px solid transparent;
+    height: 40px;
+    color: #999
+}
+
+.boxAddMoney_notLogin .boxAddMoney_content>h4>a:first-child {
+    margin-right: 80px
+}
+
+.boxAddMoney_notLogin .boxAddMoney_content>h4>a.active {
+    color: #00a888;
+    border-bottom-color: #00a888
+}
+
+.boxAddMoney_notLogin .boxAddMoney_content>h4>a:first-child:before {
+    content: '1'
+}
+
+.boxAddMoney_notLogin .boxAddMoney_content>h4>a:nth-child(2):before {
+    content: '2'
+}
+
+.boxAddMoney_notLogin .boxAddMoney_content>h4>a:before {
+    width: 25px;
+    height: 25px;
+    float: left;
+    margin-right: 5px;
+    border-radius: 20px;
+    text-align: center;
+    line-height: 25px;
+    color: #fff;
+    background-color: #999;
+    font-size: 16px
+}
+
+.boxAddMoney_notLogin .boxAddMoney_content>h4>a.active:before {
+    background-color: #00a888
+}
+
+.MartForm,
+.listOption {
+    background-color: #fff
+}
+
+.boxAddMoney_notLogin .boxAddMoney_content>h4>a span {
+    display: block;
+    font-size: 11px;
+    padding-left: 32px;
+    line-height: 18px
+}
+
+.boxAddMoney_notLogin>div {
+    width: 100%;
+    box-sizing: border-box
+}
+
+.boxAddMoney_notLogin .boxAddMoney_content>div>div {
+    width: 50%;
+    float: left;
+    box-sizing: border-box
+}
+
+.boxAddMoney_notLogin p {
+    clear: both;
+    color: #999
+}
+
+.boxAddMoney_notLogin select {
+    width: 300px
+}
+
+.boxAddMoney_notLogin .boxAddMoney_content>div>div h3 {
+    clear: both;
+    overflow: hidden;
+    padding-top: 10px
+}
+
+.boxAddMoney_notLogin .boxAddMoney_content>div>div h3 span {
+    color: #00a888;
+    font-weight: 400;
+    font-size: 20px
+}
+
+.boxAddMoney_notLogin .boxAddMoney_content>div>div p {
+    color: #999
+}
+
+.boxAddMoney_notLogin .boxAddMoney_content>div>div span {
+    line-height: 1.2
+}
+
+.boxAddMoney_notLogin .boxAddMoney_content>div>div b,
+.boxAddMoney_notLogin .boxAddMoney_content>div>div span {
+    color: #333
+}
+
+.boxAddMoney_notLogin .boxAddMoney_content>div>div p a:not(.btn),
+.boxAddMoney_notLogin .boxAddMoney_content>div>div span a {
+    color: #00a888;
+    font-weight: 700;
+    display: inline-block
+}
+
+.boxAddMoney_notLogin #userLogin>div {
+    text-align: center;
+    width: 50%;
+    margin: 20px auto;
+    float: none
+}
+
+.boxAddMoney_notLogin #userLogin>div a.btn {
+    line-height: 45px;
+    width: 100%;
+    margin-bottom: 5px
+}
+
+.boxAddMoney_notLogin input#captcha_popup_mc {
+    width: 120px;
+    float: left
+}
+
+.boxAddMoney_notLogin .boxAddMoney_content>div>div>p .btn_submit {
+    line-height: 35px
+}
+
+.boxAddMoney_notLogin .boxAddMoney_content#mobile>div {
+    border-bottom: 1px solid #ddd;
+    margin-bottom: 15px;
+    clear: both
+}
+
+.text_input>a:after {
+    content: '';
+    border: 5px solid transparent;
+    border-top-color: #333;
+    position: absolute;
+    top: 12px;
+    left: 295px
+}
+
+.listOption {
+    position: absolute;
+    width: 290px;
+    border: 1px solid #0a8;
+    border-radius: 3px;
+    top: 31px;
+    left: 0;
+    padding: 0 10px 10px;
+    display: none;
+    z-index: 1
+}
+
+.listOption>span,
+.listOption_moneyATM>ul li a {
+    display: block;
+    border-bottom: 1px solid #ccc
+}
+
+.listOption>span {
+    width: 100%;
+    text-align: center;
+    line-height: 25px;
+    font-weight: 700;
+    padding: 5px 0;
+    margin-bottom: 5px
+}
+
+.listOption_moneyATM>ul li {
+    float: left;
+    width: 50%;
+    line-height: 30px;
+    box-sizing: border-box;
+    padding: 0 5px
+}
+
+.listOption_moneyATM>ul li:nth-child(2n) {
+    border-left: 1px solid #CCC
+}
+
+.listOption_moneyATM>ul li:last-child a,
+.listOption_moneyATM>ul li:nth-last-child(2) a {
+    border-bottom-color: transparent
+}
+
+.listOption_bankATM {
+    width: 640px;
+    min-height: 200px
+}
+
+.listOption_bankATM ul {
+    float: left;
+    width: 100%
+}
+
+.listOption_bankATM ul li {
+    width: 100px;
+    margin-right: 8px;
+    float: left;
+    margin-bottom: 5px
+}
+
+.listOption_bankATM ul li:nth-child(6n) {
+    margin-right: 0
+}
+
+.listOption_bankATM ul li a {
+    border: 1px solid #999;
+    padding: 3px;
+    border-radius: 3px
+}
+
+.listOption_bankATM ul li a img {
+    display: inline-block
+}
+
+.listOption_bankATM ul li a input {
+    float: left;
+    margin-top: 16px;
+    margin-right: 3px
+}
+
+.listOption_bankATM ul li a>span {
+    display: none
+}
+
+.tabFormCart {
+    border-bottom: 1px solid #ddd;
+    overflow: hidden;
+    margin: 10px 15px 15px
+}
+
+.tabFormCart li {
+    float: left;
+    margin-right: 40px
+}
+
+.tabFormCart li a {
+    font-size: 20px;
+    display: block;
+    padding: 5px 15px 10px 0;
+    color: #CCC
+}
+
+.tabFormCart li a:hover {
+    color: #333
+}
+
+.tabFormCart li a.active {
+    color: #333;
+    border-bottom: 2px solid #00a888
+}
+
+.MartForm {
+    padding: 10px 20px;
+    clear: both
+}
+
+.listDocMart li {
+    float: left;
+    width: 100%;
+    margin-bottom: 5px;
+    padding: 10px 15px 10px 5px;
+    box-sizing: border-box
+}
+
+.listDocMart li.deactive {
+    position: relative;
+    background-color: #ededed;
+    border-radius: 3px
+}
+
+.listDocMart li>a.undoDelItem {
+    display: none
+}
+
+.listDocMart li>a {
+    float: left;
+    width: 350px;
+    line-height: 1.5;
+    color: #666
+}
+
+.listDocMart li>a label {
+    color: #999;
+    font-size: 12px;
+    white-space: nowrap;
+    margin-left: 10px
+}
+
+.listDocMart li>a label i {
+    margin: 0
+}
+
+.listDocMart li>a i {
+    margin-right: 5px
+}
+
+.listDocMart li>span a {
+    float: left;
+    color: #999;
+    font-size: 12px;
+    line-height: 22px;
+    display: none;
+    margin-left: 20px
+}
+
+.listDocMart li.deactive>span a.undoDelItem,
+.listDocMart li:not(.deactive):hover>span a.delItem {
+    display: inline-block
+}
+
+.listDocMart li.deactive>span a.undoDelItem i {
+    width: 21px;
+    height: 19px;
+    background-position: -492px -291px;
+    float: left;
+    margin-right: 3px
+}
+
+.listDocMart li>span a.delItem i {
+    width: 16px;
+    height: 19px;
+    background-position: -410px -85px;
+    float: left;
+    margin-right: 3px
+}
+
+.listDocMart li>span label {
+    float: right;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 22px
+}
+
+.listDocMart li.deactive>span label {
+    color: #999
+}
+
+.MartForm>div.martBot {
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 1px solid #ddd;
+    clear: both
+}
+
+.MartForm>div.martBot>p {
+    margin: 0;
+    color: #999;
+    font-size: 12px;
+    clear: both;
+    line-height: 25px;
+    overflow: hidden
+}
+
+.MartForm>div.martBot>p>label {
+    float: left;
+    color: #999;
+    width: 350px;
+    font-size: 12px;
+    line-height: 1.5
+}
+
+.MartForm>div.martBot>p>label.imNote {
+    color: red;
+    font-style: italic
+}
+
+.MartForm>div.martBot>p.priceOld {
+    text-align: right;
+    color: #999;
+    font-weight: 700;
+    text-decoration: line-through;
+    font-size: 16px;
+    line-height: 16px
+}
+
+.MartForm>div.martBot>p span {
+    float: right;
+    color: #999
+}
+
+.MartForm>div.martBot>p span label {
+    color: #fb0;
+    font-size: 25px;
+    margin-left: 10px
+}
+
+.MartForm>div.martBot>a {
+    padding: 10px 20px;
+    line-height: 20px;
+    font-size: 15px;
+    background-color: #aaa;
+    color: #fff;
+    border-radius: 3px;
+    float: right;
+    margin-top: 10px;
+    margin-left: 10px
+}
+
+.MartForm>div.martBot>a#submitCart_btn {
+    background-color: #fa0
+}
+
+.MartForm>div.martBot>a.clearBtn {
+    background-color: #999;
+    float: left
+}
+
+.boxFillData#view {
+    background-color: transparent;
+    border-left: 1px solid #ddd
+}
+
+.boxFillData#view>p {
+    padding: 5px 10px 0;
+    background-color: #f6f6f6;
+    overflow: hidden;
+    line-height: 25px
+}
+
+.boxFillData#view>p b {
+    text-transform: uppercase;
+    float: left;
+    font-size: 12px;
+    color: #666
+}
+
+.boxFillData#view>p a {
+    float: right;
+    color: #666;
+    font-size: 11px
+}
+
+.boxFillData#view>p a i {
+    width: 16px;
+    height: 19px;
+    background-position: -303px -60px;
+    float: left;
+    margin-right: 3px;
+    background-size: 384px
+}
+
+.boxFillData#view ul#listUserViewed {
+    padding-right: 10px
+}
+
+.boxFillData#view ul#listUserViewed>li {
+    float: left;
+    width: 100%;
+    padding: 15px 0 15px 10px;
+    border-top: 1px solid #ddd
+}
+
+.boxFillData#view ul#listUserViewed>li>h2 a {
+    font-weight: 700;
+    color: #333;
+    font-size: 13px
+}
+
+.boxFillData#view ul#listUserViewed>li>h2 a i {
+    margin-right: 3px
+}
+
+.boxFillData#view ul#listUserViewed>li>p {
+    color: #aaa;
+    text-transform: uppercase;
+    font-weight: 700;
+    margin: 5px 0;
+    clear: both;
+    padding-left: 15px;
+    font-size: 11px
+}
+
+.bottom_404>h2,
+.bottom_404>h3,
+.boxFillData#view>h3,
+.frm_login>h3 {
+    font-weight: 400;
+    text-align: center
+}
+
+.boxFillData#view ul#listUserViewed>li ul {
+    padding-left: 15px
+}
+
+.boxFillData#view ul#listUserViewed>li ul li {
+    float: left;
+    width: 100%;
+    margin: 5px 0;
+    display: none
+}
+
+.boxFillData#view ul#listUserViewed>li ul li:nth-child(1),
+.boxFillData#view ul#listUserViewed>li ul li:nth-child(2) {
+    display: block
+}
+
+.boxFillData#view ul#listUserViewed>li ul li a {
+    width: auto;
+    height: auto;
+    font-size: 12px;
+    line-height: 1.5
+}
+
+.boxFillData#view ul#listUserViewed>li ul li a i {
+    margin-right: 3px
+}
+
+.boxFillData#view ul#listUserViewed>li>p>a {
+    color: #00a888;
+    font-size: 9px
+}
+
+.boxFillData#view>h3 {
+    margin: 20px 5px;
+    font-size: 20px
+}
+
+.frm_login {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 10px 35px 0
+}
+
+.frm_login>h1 {
+    text-align: center
+}
+
+.frm_login>h1>a {
+    width: 80px;
+    height: 26px;
+    display: inline-block;
+    margin: 0 0 10px;
+    background-position: 1px -2px;
+    background-size: 512px auto;
+    text-indent: -9999px
+}
+
+.frm_login>h3 {
+    margin: 5px 0 15px
+}
+
+.frm_login>ul {
+    width: 100%;
+    clear: both;
+    overflow: hidden
+}
+
+.frm_login>.frm_login_user {
+    margin-bottom: 10px
+}
+
+.frm_login>ul li {
+    float: left;
+    width: 47.5%;
+    background-color: #2946a2;
+    line-height: 30px
+}
+
+.frm_login>ul li:last-child {
+    float: right;
+    background-color: #ce3b2d
+}
+
+.frm_login>ul li a {
+    text-align: center
+}
+
+.frm_login>ul li:first-child a i {
+    width: 8px;
+    height: 18px;
+    float: left;
+    background-position: -357px -219px;
+    margin-left: 11px;
+    margin-top: 6px
+}
+
+.frm_login>ul li:last-child a i {
+    width: 14px;
+    height: 22px;
+    background-position: -373px -218px;
+    margin-top: 4px;
+    margin-left: 8px;
+    float: left
+}
+
+.frm_login>ul li a span {
+    display: block;
+    margin-left: 30px;
+    background-color: #314faf;
+    box-sizing: border-box;
+    color: #fff;
+    font-size: 12px
+}
+
+.frm_login>ul li:last-child a span {
+    background-color: #e84c3d
+}
+
+.frm_login p {
+    clear: both;
+    margin: 5px 0
+}
+
+.frm_login>p {
+    height: 1px;
+    margin: 30px 0 25px;
+    text-align: center;
+    background-color: #ddd
+}
+
+.frm_login>p>label {
+    background-color: #fff;
+    padding: 0 10px;
+    line-height: 20px;
+    margin-top: -10px;
+    display: inline-block;
+    color: #999;
+    font-size: 12px;
+    vertical-align: top
+}
+
+.frm_login p i.i_idvg {
+    width: 61px;
+    height: 20px;
+    background-position: -393px -219px;
+    margin-left: 5px;
+    vertical-align: top
+}
+
+.frm_login form p {
+    position: relative;
+    float: left;
+    width: 100%
+}
+
+.frm_login form input[type=password],
+.frm_login form input[type=text] {
+    line-height: 30px;
+    width: 100%;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    padding: 5px 10px 5px 15px;
+    margin-bottom: 5px;
+    font-size: 16px;
+    color: #333;
+    box-sizing: border-box
+}
+
+.frm_login form p input[type=password].focus,
+.frm_login form p input[type=password]:focus,
+.frm_login form p input[type=text].focus,
+.frm_login form p input[type=text]:focus,
+.frm_login form p.active input[type=password],
+.frm_login form p.active input[type=text] {
+    border-color: #00a888
+}
+
+.frm_login form p label.focus,
+.frm_login form p.active label {
+    color: #00a888;
+    font-size: 11px;
+    top: -11px;
+    background-color: #fff;
+    padding: 0 5px
+}
+
+.frm_login form p label {
+    position: absolute;
+    left: 15px;
+    line-height: 20px;
+    top: 12px;
+    color: #aaa;
+    font-size: 14px;
+    transition: all .2s
+}
+
+input:-webkit-autofill {
+    background-color: #fff!important
+}
+
+.frm_login form p input[type=checkbox] {
+    float: left;
+    margin-right: 3px
+}
+
+.frm_login form p>span {
+    font-size: 12px;
+    color: #999;
+    float: left
+}
+
+.frm_login form p input[type=submit] {
+    border: none;
+    width: 100%;
+    background-color: #00a888;
+    line-height: 35px;
+    border-radius: 3px;
+    color: #fff;
+    text-align: center;
+    cursor: pointer
+}
+
+.frm_login form p:last-child>a {
+    float: left;
+    color: #00a888;
+    font-size: 12px
+}
+
+.frm_login form p:last-child>a:last-child {
+    float: right
+}
+
+.bg_404 {
+    width: 707px;
+    height: 309px;
+    background-image: url(../images/404.png);
+    margin: 50px auto
+}
+
+.bottom_404 {
+    text-align: center;
+    padding-bottom: 50px
+}
+
+.bottom_404>h2,
+.bottom_404>h3 {
+    color: #333;
+    line-height: 1.5em
+}
+
+.bottom_404>h3 {
+    color: #666
+}
+
+.bottom_404>p {
+    text-align: center
+}
+
+.bottom_404>input {
+    width: 600px
+}
+
+.bottom_404 a.btn {
+    display: inline-block;
+    padding: 10px 20px
+}
+
+.bottom_404 .searchBox {
+    float: none;
+    width: 360px;
+    margin: 10px auto;
+    display: block;
+    overflow: hidden;
+    background-color: #fff
+}
+
+.MartForm#myCart .itemCart>span,
+.myNotifi ul,
+.myNotifi ul li {
+    float: left
+}
+
+.ad_user_side_right.myNotifi {
+    overflow: hidden;
+    background-color: #fff;
+    padding: 15px 20px 10px 30px;
+    box-sizing: border-box
+}
+
+.myNotifi>h2 {
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+    border-bottom: 1px solid #DDD
+}
+
+.myNotifi ul li {
+    width: 100%;
+    clear: both;
+    margin-bottom: 15px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #EEE
+}
+
+.myNotifi ul li:last-child {
+    border-bottom: none
+}
+
+.myNotifi ul li>a {
+    line-height: 1.5;
+    display: inline-block
+}
+
+.myNotifi ul li .htu_notifi_time {
+    color: #666;
+    font-size: 13px;
+    margin-top: 10px
+}
+
+.myNotifi ul li .highlight {
+    color: #666;
+    font-weight: 700
+}
+
+.myNotifi ul li .highlightGreen {
+    color: #0aa888;
+    font-weight: 700
+}
+
+.menuMyNotifi {
+    margin-top: -15px!important
+}
+
+.MartForm#myCart {
+    padding: 0 10px
+}
+
+.MartForm#myCart .itemCart {
+    margin-bottom: 5px;
+    overflow: hidden;
+    padding: 15px 15px 15px 10px
+}
+
+.MartForm#myCart .itemCart:nth-child(2n+1) {
+    background-color: #f8f8f8
+}
+
+.MartForm#myCart .itemCart>span:first-child {
+    width: 215px;
+    font-weight: 700
+}
+
+.MartForm#myCart .itemCart>span:nth-child(2) {
+    color: #fb0;
+    width: 110px;
+    font-size: 13px;
+    line-height: 17px;
+    font-weight: 700
+}
+
+.MartForm#myCart .itemCart>span:nth-child(2) i {
+    width: 17px;
+    height: 17px;
+    margin-right: 3px;
+    background-position: -131px -30px;
+    float: left
+}
+
+.MartForm#myCart .itemCart>span:nth-child(3) {
+    color: #999;
+    font-size: 12px
+}
+
+.MartForm#myCart .itemCart>a {
+    float: right;
+    color: #999;
+    font-size: 12px
+}
+
+.MartForm#myCart .itemCart>a i {
+    float: left;
+    background-position: -321px -34px;
+    width: 17px;
+    height: 15px
+}
+
+.MartForm#myCart .itemCart>a:hover {
+    color: #666
+}
+
+.MartForm#myCart>p {
+    color: red;
+    font-size: 13px;
+    margin: 10px 15px 0;
+    padding-top: 10px;
+    border-top: 1px solid #efefef
+}
+
+.MartForm#myCart h3 {
+    font-weight: 400;
+    text-align: center;
+    margin-top: 40px
+}
+
+body .paging {
+    clear: both;
+    margin: 10px 0 0;
+    text-align: center
+}
+
+body .paging a {
+    display: inline-block;
+    margin: 0 5px 0 0;
+    padding: 5px 10px;
+    line-height: 20px;
+    background-color: #ddd;
+    color: #333;
+    border-radius: 2px;
+    font-size: 15px;
+    border: 1px solid transparent
+}
+
+body .paging a:hover {
+    color: #00a888;
+    border-color: #00a888
+}
+
+body .paging a.pagging_active {
+    background-color: #00a888;
+    color: #fff
+}
+
+#submitLogin {
+    background: #00a888;
+    color: #fff;
+    text-transform: uppercase;
+    text-align: center;
+    padding: 8px 0;
+    width: 100%;
+    border-radius: 5px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer
+}
+
+p.txt_note {
+    margin-left: -5px;
+    color: #333;
+    font-size: 15px;
+    font-weight: 700;
+    text-decoration: underline
+}
+
+p.txt_note::before {
+    content: ''!important
+}
+
+.social_fixed {
+    position: fixed;
+    left: 2px;
+    top: 150px;
+    padding: 15px 5px;
+    background-color: #fff;
+    border-radius: 5px;
+    border: 1px solid #EEE
+}
+
+.social_fixed>div:first-child {
+    margin-bottom: 15px
+}
+
+.box_AddMoney {
+    position: relative
+}
+
+.box_send_req {
+    position: absolute!important;
+    padding: 0!important;
+    margin: 20px auto!important;
+    height: 1000px;
+    overflow: hidden
+}
+
+#if_feedback_doc,
+#if_send_doc_req {
+    height: 1300px!important;
+    position: absolute
+}
+
+#if_send_doc_req {
+    margin-top: -200px;
+    clip: rect(170px, 645px, 1145px, 10px)
+}
+
+#box_feed_back {
+    height: 650px;
+    margin: 2px auto!important
+}
+
+#if_feedback_doc {
+    margin-top: -215px;
+    clip: rect(200px, 645px, 1145px, 20px)
+}
