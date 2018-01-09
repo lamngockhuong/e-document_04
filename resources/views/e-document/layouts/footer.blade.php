@@ -1,10 +1,8 @@
-<footer>
-    <div class="copyright">
-        <div class="container">
-            <a class="icon-tl24h-logo" href="/" title="Simplest way to sell digital downloads"><i class="fa fa-snapchat-square" aria-hidden="true"></i></a>
-            <p class="footer-copyright">
-                <span class="item">@lang('e-document.footer.copyright')</span>
-            </p>
+<div id="footer">
+    <footer>
+        <h3 class="doc_logo_footer"><a href="javascript:;"></a></h3>
+        <div class="doc_copyright_footer">
+            <p>@lang('e-document.footer.copyright')</p>
         </div>
-    </div>
-</footer>
+    </footer>
+</div>

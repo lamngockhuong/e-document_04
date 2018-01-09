@@ -41,14 +41,14 @@ class Document extends Model
         return $this->belongsTo(User::class);
     }
 
-    public function termtaxonomy()
+    public function termTaxonomys()
     {
         return $this->belongsToMany(
             TermTaxonomy::class,
             'term_taxonomy_documents',
-            'term_taxonomy_id',
-            'object_id'
-        );
+            'object_id',
+            'term_taxonomy_id'
+        )->withPivot('object_id');
     }
 
     public function favoritedUsers()
@@ -59,5 +59,14 @@ class Document extends Model
     public function activities()
     {
         return $this->morphMany(Activity::class, 'activiable');
+    }
+
+    /**
+     * Get image url
+     * @return string
+     */
+    public function getImageUrlAttribute()
+    {
+        return asset(config('setting.avatar_folder') . '/' . $this->image);
     }
 }

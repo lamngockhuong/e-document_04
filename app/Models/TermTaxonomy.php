@@ -22,8 +22,8 @@ class TermTaxonomy extends Model
         return $this->belongsToMany(
             Document::class,
             'term_taxonomy_documents',
-            'object_id',
-            'term_taxonomy_id'
+            'term_taxonomy_id',
+            'object_id'
         );
     }
 
