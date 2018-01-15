@@ -14,6 +14,6 @@ class IndexController extends Controller
      */
     public function index()
     {
-        return view(config('setting.public_view_folder') . '.index');
+        return view('e-document.index');
     }
 }

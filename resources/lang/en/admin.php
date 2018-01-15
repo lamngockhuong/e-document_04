@@ -105,6 +105,7 @@ return [
     'category' => [
         'title' => 'Categories',
         'none' => 'None',
+        'choose' => 'Choose the category',
         'message' => [
             'create-success' => 'Create Successfully!',
             'create-error' => 'Create Error! Please try again',

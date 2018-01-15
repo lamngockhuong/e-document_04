@@ -26,7 +26,7 @@ $factory->define(\App\Models\Document::class, function (Faker $faker) {
         'title' => $faker->jobTitle,
         'slug' => $faker->slug,
         'image' => 'images/photo.jpg',
-        'description' => $faker->paragraph,
+        'description' => $faker->jobTitle,
         'content' => $faker->paragraph,
         'source' => 'http://localhost/file.docx',
         'file_type' => $faker->randomElement(['doc', 'docx', 'pdf', 'ppt', 'pptx', 'xsl', 'xsls']),

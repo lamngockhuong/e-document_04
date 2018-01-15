@@ -6,9 +6,9 @@ use Illuminate\Http\UploadedFile;
 
 class File
 {
-    public static function mkdirsWithTime($year = true, $month = true, $day = true)
+    public static function mkdirsWithTime($startedWithSeparator = true, $endedWithSeparator = true, $year = true, $month = true, $day = true)
     {
-        $dir = '';
+        $startedWithSeparator ? $dir = DIRECTORY_SEPARATOR : '';
         if ($year) {
             $dir .= date('Y') . DIRECTORY_SEPARATOR;
         }
@@ -19,6 +19,10 @@ class File
 
         if ($day) {
             $dir .= date('d') . DIRECTORY_SEPARATOR;
+        }
+
+        if (!$endedWithSeparator) {
+            $dir = str_replace_last(DIRECTORY_SEPARATOR, '', $dir);
         }
 
         return $dir;
@@ -73,7 +77,7 @@ class File
     {
         $fileName = File::newName($file, $fileName, $originalName, $time);
         $timeDir = File::mkdirsWithTime();
-        $destinationPath = public_path($publicDir . DIRECTORY_SEPARATOR . $timeDir);
+        $destinationPath = public_path($publicDir . $timeDir);
         $file->move($destinationPath, $fileName);
 
         return $timeDir . $fileName;

@@ -69,4 +69,9 @@ class Document extends Model
     {
         return asset(config('setting.avatar_folder') . '/' . $this->image);
     }
+
+    public function setSlugAttribute($value)
+    {
+        $this->attributes['slug'] = str_slug($value);
+    }
 }
