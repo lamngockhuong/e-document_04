@@ -77,4 +77,9 @@ class User extends Authenticatable
     {
         return asset(config('setting.avatar_folder') . '/' . $this->avatar);
     }
+
+    public function getFullname()
+    {
+        return $this->lastname . ' ' . $this->firstname;
+    }
 }

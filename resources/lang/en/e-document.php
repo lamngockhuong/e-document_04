@@ -9,6 +9,9 @@ return [
         'upload' => 'Upload',
         'search_placeholder' => 'Please enter the document you are looking for...',
     ],
+    'index' => [
+        'title' => 'Home page',
+    ],
     'document' => [
         'create' => [
             'title' => 'Upload document',

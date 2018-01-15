@@ -6,6 +6,7 @@ return [
         'success' => 200,
     ],
     'avatar_folder' => 'images' . DIRECTORY_SEPARATOR . 'avatars',
+    'document_image_folder' => 'images' . DIRECTORY_SEPARATOR . 'documents',
     'terms_default' => [
         'name' => '',
         'slug' => '',
@@ -59,5 +60,23 @@ return [
     'user' => [
         'status_active' => 1,
         'status_deactive' => 0,
+    ],
+
+    'document' => [
+        'type' => [
+            'pdf' => 2,
+            'doc' => 3,
+            'docx' => 3,
+            'ppt' => 4,
+            'pptx' => 4,
+            'csv' => 5,
+        ],
+        'doc_list_cnt_end_div' => 5,
+    ],
+
+    'public' => [
+        'homepage' => [
+            'number_of_documents' => 20,
+        ],
     ],
 ];
