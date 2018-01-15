@@ -4,7 +4,7 @@
         <div class="headerRight">
             <div class="mainBox">
                 <a href="#" rel="nofollow" class="btn btn_yellow">@lang('e-document.header.deposit')</a>
-                <a href="#" rel="nofollow" class="btn btn_green btn_upload">@lang('e-document.header.upload')</a>
+                <a href="{{ route('document-manager.create') }}" rel="nofollow" class="btn btn_green btn_upload">@lang('e-document.header.upload')</a>
             </div>
             <a href="#" rel="nofollow" target="_blank" class="landBox"><span class="icon i_start"></span></a>
             @guest
@@ -15,7 +15,7 @@
             @else
                 <div class="userBox">
                     <div class="userLoginBox">
-                        <a rel="nofollow" href="" class="use_img"><img src="{{ auth()->user()->avatar_url }}" onerror="this.src='templates/e-document/images/user_small.png'"></a>
+                        <a rel="nofollow" href="" class="use_img"><img src="{{ auth()->user()->avatar_url }}" onerror="this.src='{{ asset('templates/e-document/images/user_small.png') }}'"></a>
                         <a rel="nofollow" class="use_name" href="">{{ auth()->user()->firstname }}</a>
                         <div>
                             <i></i>

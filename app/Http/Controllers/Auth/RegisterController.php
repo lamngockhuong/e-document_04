@@ -82,7 +82,7 @@ class RegisterController extends Controller
             'wallet' => config('setting.users_default.wallet'),
             'status' => config('setting.users_default.status'),
             'role' => config('setting.users_default.role'),
-            'password' => bcrypt($data['password']),
+            'password' => $data['password'],
         ]);
     }
 }

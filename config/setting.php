@@ -1,7 +1,10 @@
 <?php
 return [
-
-    'public_view_folder' => 'e-document',
+    'none' => '',
+    'status' => [
+        'error' => 400,
+        'success' => 200,
+    ],
     'avatar_folder' => 'images' . DIRECTORY_SEPARATOR . 'avatars',
     'terms_default' => [
         'name' => '',
@@ -15,6 +18,10 @@ return [
     ],
 
     'documents_default' => [
+        'document_status' => 0,
+        'comment_status' => 0,
+        'coin' => 0,
+        'page_count' => 0,
         'view_count' => 0,
         'download_count' => 0,
     ],
