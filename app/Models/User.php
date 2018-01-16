@@ -73,12 +73,17 @@ class User extends Authenticatable
         $this->attributes['password'] = bcrypt($value);
     }
 
-    public function getAvatarUrl()
+    public function getAvatarUrlAttribute()
     {
         return asset(config('setting.avatar_folder') . '/' . $this->avatar);
     }
 
-    public function getFullname()
+    public function getDefaultAvatarUrlAttribute()
+    {
+        return asset('templates/e-document/images/user_small.png');
+    }
+
+    public function getFullnameAttribute()
     {
         return $this->lastname . ' ' . $this->firstname;
     }

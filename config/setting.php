@@ -7,6 +7,7 @@ return [
     ],
     'avatar_folder' => 'images' . DIRECTORY_SEPARATOR . 'avatars',
     'document_image_folder' => 'images' . DIRECTORY_SEPARATOR . 'documents',
+    'storage_folder' => 'storage',
     'terms_default' => [
         'name' => '',
         'slug' => '',

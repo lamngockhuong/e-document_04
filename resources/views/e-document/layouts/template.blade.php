@@ -11,6 +11,7 @@
     {!! Html::style('templates/e-document/css/index.css') !!}
     {!! Html::style('templates/e-document/css/style.css') !!}
     {!! Html::style('templates/e-document/css/upload.css') !!}
+    {!! Html::style('templates/e-document/css/detail.css') !!}
     {!! Html::script('templates/e-document/js/app.js') !!}
 </head>
 <body>
