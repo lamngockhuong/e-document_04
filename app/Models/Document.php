@@ -79,4 +79,14 @@ class Document extends Model
     {
         $this->attributes['slug'] = str_slug($value);
     }
+
+    public function getDocumentUrlAttribute()
+    {
+        return route('document.detail', [str_slug($this->attributes['title']), $this->attributes['id']]);
+    }
+
+    public function getDocumentSourceAttribute()
+    {
+        return asset(config('setting.storage_folder') . '/' . $this->attributes['source']);
+    }
 }

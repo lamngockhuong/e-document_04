@@ -15,7 +15,7 @@
             @else
                 <div class="userBox">
                     <div class="userLoginBox">
-                        <a rel="nofollow" href="" class="use_img"><img src="{{ auth()->user()->avatar_url }}" onerror="this.src='{{ asset('templates/e-document/images/user_small.png') }}'"></a>
+                        <a rel="nofollow" href="" class="use_img"><img src="{{ auth()->user()->avatar_url }}" onerror="this.src='{{ auth()->user()->default_avatar_url }}'"></a>
                         <a rel="nofollow" class="use_name" href="">{{ auth()->user()->firstname }}</a>
                         <div>
                             <i></i>

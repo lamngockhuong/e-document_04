@@ -65,6 +65,13 @@ return [
                 'unauthorized' => 'Unauthorized access',
             ],
         ],
+        'detail' => [
+            'title' => 'Document',
+            'send_message' => 'Send message',
+            'report_issue' => 'Report',
+            'download' => 'Download',
+            'page' => 'page',
+        ],
     ],
     'footer' => [
         'copyright' => 'Copyright 2017. All rights reserved.',
