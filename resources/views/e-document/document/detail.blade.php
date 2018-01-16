@@ -46,7 +46,7 @@
                         </p>
                     </div>
                     <div class="detailDownload">
-                        <a rel="nofollow" href="{{ $document->documentSource }}" target="_blank">
+                        <a data-url="{{ route('document.checkDownload') }}" data-id="{{ $document->id }}" href="javascript:void(0)" class="download-button">
                             <span>@lang('e-document.document.detail.download')</span>
                             <label>{{ $document->download_count }}</label>
                         </a>
@@ -58,7 +58,7 @@
                 </iframe>
             </div>
             <div class="detailActionDownload ">
-                <a rel="nofollow" href="{{ $document->documentSource }}" target="_blank">
+                <a data-url="{{ route('document.checkDownload') }}" data-id="{{ $document->id }}" href="javascript:void(0)" class="download-button">
                     <i class="icon"></i>@lang('e-document.document.detail.download') <span>({{ $document->page_count }} @lang('e-document.document.detail.page'))</span>
                 </a>
             </div>

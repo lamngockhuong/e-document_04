@@ -3,9 +3,10 @@
 namespace App\Http\Controllers\Outside;
 
 use App\Models\Document;
-use Illuminate\Database\QueryException;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Symfony\Component\HttpFoundation\File\Exception\FileNotFoundException;
+use Symfony\Component\HttpFoundation\File\File;
 
 class DocumentController extends Controller
 {
@@ -19,7 +20,7 @@ class DocumentController extends Controller
                 },
             ])->findOrFail($id);
 
-            if (str_slug($document->title) != $slug) {
+            if (str_slug($document->title) !== $slug) {
                 throw new \Exception();
             }
 
@@ -29,6 +30,72 @@ class DocumentController extends Controller
             return view('e-document.document.detail', compact('title', 'document', 'category'));
         } catch (\Exception $e) {
             return redirect()->route('public.index');
+        }
+    }
+
+    public function showDownload($token, $id)
+    {
+        try {
+            $document = Document::findOrFail($id);
+
+            $title = $document->title;
+
+            if (session()->pull(config('setting.document.session_download_key') . $id) !== $token) {
+                return redirect($document->detail_url);
+            }
+
+            return view('e-document.document.download', compact('title', 'document'));
+        } catch (\Exception $e) {
+            return redirect($document->detail_url);
+        }
+    }
+
+    public function forceDownload($token, $id)
+    {
+        try {
+            $document = Document::findOrFail($id);
+
+            if (session()->pull(config('setting.document.session_force_download_key') . $id) !== $token) {
+                return redirect($document->detail_url);
+            }
+
+            $path = $document->file_real_path;
+            $name = $document->download_file_name;
+            $file = new File($path);
+            $headers = [config('setting.content_type') . $file->getMimeType()];
+
+            return response()->download($path, $name, $headers);
+        } catch (FileNotFoundException $e) {
+            return redirect($document->detail_url);
+        } catch (\Exception $e) {
+            return redirect($document->detail_url);
+        }
+    }
+
+    public function checkDownload(Request $request)
+    {
+        try {
+            $document = Document::findOrFail($request->id);
+
+            // generate token
+            $token = uniqid();
+            $sessionKey = $request->type === config('setting.document.download_type') ? config('setting.document.session_download_key') : config('setting.document.session_force_download_key');
+            session([$sessionKey . $request->id => $token]);
+
+            $routeName = $request->type === config('setting.document.download_type') ? 'document.download' : 'document.forceDownload';
+
+            return response()->json([
+                'status' => config('setting.status.success'),
+                'url' => route($routeName, [
+                    'token' => $token,
+                    'id' => $document->id,
+                ]),
+            ], 200);
+        } catch (\Exception $e) {
+            return response()->json([
+                'status' => config('setting.status.error'),
+                'message' => trans('e-document.document.download.message.error'),
+            ], 400);
         }
     }
 

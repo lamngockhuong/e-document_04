@@ -67,7 +67,7 @@ class Document extends Model
      */
     public function getImageUrlAttribute()
     {
-        return asset(config('setting.document_image_folder') . '/' . $this->image);
+        return asset(config('setting.document_image_folder') . DIRECTORY_SEPARATOR . $this->image);
     }
 
     public function getDefaultImageUrlAttribute()
@@ -80,13 +80,28 @@ class Document extends Model
         $this->attributes['slug'] = str_slug($value);
     }
 
-    public function getDocumentUrlAttribute()
+    public function getDetailUrlAttribute()
     {
         return route('document.detail', [str_slug($this->attributes['title']), $this->attributes['id']]);
     }
 
     public function getDocumentSourceAttribute()
     {
-        return asset(config('setting.storage_folder') . '/' . $this->attributes['source']);
+        return asset(config('setting.storage_folder') . DIRECTORY_SEPARATOR . $this->attributes['source']);
+    }
+
+    public function getFileRealPathAttribute()
+    {
+        return storage_path(config('setting.storage_public_folder') . DIRECTORY_SEPARATOR . $this->attributes['source']);
+    }
+
+    public function getDocumentDownloadUrl($token)
+    {
+        return route('document.download', [$token, $this->attributes['id']]);
+    }
+
+    public function getDownloadFileNameAttribute()
+    {
+        return str_slug($this->attributes['title']) . '-' . time() . '.' . $this->attributes['file_type'];
     }
 }

@@ -8,6 +8,8 @@ return [
     'avatar_folder' => 'images' . DIRECTORY_SEPARATOR . 'avatars',
     'document_image_folder' => 'images' . DIRECTORY_SEPARATOR . 'documents',
     'storage_folder' => 'storage',
+    'storage_public_folder' => 'app' . DIRECTORY_SEPARATOR . 'public',
+    'content_type' => 'Content-Type: ',
     'terms_default' => [
         'name' => '',
         'slug' => '',
@@ -64,6 +66,10 @@ return [
     ],
 
     'document' => [
+        'status' => [
+            'approved' => 1,
+            'unapproved' => 0,
+        ],
         'type' => [
             'pdf' => 2,
             'doc' => 3,
@@ -73,6 +79,10 @@ return [
             'csv' => 5,
         ],
         'doc_list_cnt_end_div' => 5,
+        'session_download_key' => 'download',
+        'session_force_download_key' => 'force_download',
+        'download_type' => 'download',
+        'force_download_type' => 'force_download',
     ],
 
     'public' => [

@@ -1,6 +1,8 @@
 <header>
     <div class="box_content">
-        <div class="icon icon-logo"></div>
+        <div class="icon icon-logo">
+            <a title="@lang('e-document.index.title')" href="{{ route('public.index') }}">@lang('e-document.index.title')</a>
+        </div>
         <div class="headerRight">
             <div class="mainBox">
                 <a href="#" rel="nofollow" class="btn btn_yellow">@lang('e-document.header.deposit')</a>
