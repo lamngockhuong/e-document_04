@@ -5,9 +5,7 @@ namespace App\Http\Controllers\Outside;
 use App\Http\Requests\DocumentRequest;
 use App\Models\Document;
 use App\Models\Term;
-use const Grpc\STATUS_UNAUTHENTICATED;
 use Illuminate\Database\QueryException;
-use Illuminate\Http\Exceptions\PostTooLargeException;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use File;
@@ -197,7 +195,7 @@ class DocumentManagerController extends Controller
         return response()->json([
                 'status' => config('setting.status.error'),
                 'message' => trans('e-document.document.create.message.error'),
-            ], 400);
+        ], 400);
     }
 
     private function uploadProcessor(Request $request)
@@ -208,7 +206,7 @@ class DocumentManagerController extends Controller
         $docObject->uid = $request->id;
         $docObject->name = $request->docs->getClientOriginalName();
         $docObject->fileName = $fileName;
-        $docObject->fileType = $request->docs->getClientMimeType();
+        $docObject->fileType = $request->docs->getClientOriginalExtension();
         $docObject->size = $request->docs->getClientSize();
 
         return $docObject;

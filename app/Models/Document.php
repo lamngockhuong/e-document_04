@@ -67,7 +67,12 @@ class Document extends Model
      */
     public function getImageUrlAttribute()
     {
-        return asset(config('setting.avatar_folder') . '/' . $this->image);
+        return asset(config('setting.document_image_folder') . '/' . $this->image);
+    }
+
+    public function getDefaultImageUrlAttribute()
+    {
+        return asset('templates/e-document/images/doc_normal.png');
     }
 
     public function setSlugAttribute($value)
