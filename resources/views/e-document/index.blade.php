@@ -7,11 +7,11 @@
             <div class="doc_item_cnt">
                 @foreach($documents as $document)
                     <div class="doc_list_cnt"{{ $loop->iteration % config('setting.document.doc_list_cnt_end_div') ?  '' : ' style=margin-right:0' }}>
-                        <a class="doc_cnt_img" href="{{ $document->documentUrl }}" target="_blank" title="{{ $document->title }}">
+                        <a class="doc_cnt_img" href="{{ $document->detail_url }}" target="_blank" title="{{ $document->title }}">
                             <img alt="{{ $document->title }}" src="{{ $document->imageUrl }}"
                                  onerror="this.src='{{ $document->defaultImageUrl }}'">
                         </a>
-                        <a class="doc_title_cnt" href="{{ $document->documentUrl }}" title="{{ $document->title }}" target="_blank">
+                        <a class="doc_title_cnt" href="{{ $document->detail_url }}" title="{{ $document->title }}" target="_blank">
                             <i class="icon i_type_doc i_type_doc{{ config('setting.document.type.' . $document->file_type, '') }}"></i>{{ $document->title }}
                         </a>
                         <a rel="nofollow" class="doc_author_cnt doc_name_author" href=""

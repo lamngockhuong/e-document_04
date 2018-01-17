@@ -1,5 +1,13 @@
 require('./bootstrap');
 
+(function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = 'https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v2.11';
+    fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));
+
 function cancelUpload() {
     if (jqXHR) {
         jqXHR.abort();
@@ -7,6 +15,10 @@ function cancelUpload() {
     }
     return false;
 };
+
+function showDownloadButon() {
+    $('p.line_action.hidden').removeClass('hidden');
+}
 
 $(function () {
     // click upload button event
@@ -123,5 +135,74 @@ $(function () {
                 $('#uploadResult #' + uid).prepend('<tr class="tr_uploadNotifi error"><td colspan="2"><span><i class="icon"></i> ' + errorThrown + ': ' + message + '</span></td></tr>');
             });
         }
+    });
+
+    // show download document
+    $('.download-button').on('click', function () {
+        var url = $(this).data('url');
+        var i = $(this).data('id');
+        var t = 'download';
+        $.ajax({
+            url: url,
+            type:'POST',
+            dataType: 'json',
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            },
+            data: {
+                id : i,
+                type : t,
+            },
+            success: function (data) {
+                if (data.status == 200) {
+                    window.location = data.url;
+                }
+            },
+            error: function (data) {
+                if (data.status == 401) {
+                    alert(data.responseJSON.message);
+                }
+            }
+        });
+    });
+
+    // download document
+    var timeleft = 20;
+    $('#count-down').text(timeleft);
+    var downloadTimer = setInterval(function(){
+        timeleft--;
+        $('#count-down').text(timeleft);
+        if(timeleft <= 0) {
+            clearInterval(downloadTimer);
+            showDownloadButon();
+        }
+    },1000);
+
+    $('.btn_download').on('click', function () {
+        var url = $(this).data('url');
+        var i = $(this).data('id');
+        var t = 'force_download';
+        $.ajax({
+            url: url,
+            type:'POST',
+            dataType: 'json',
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            },
+            data: {
+                id : i,
+                type : t,
+            },
+            success: function (data) {
+                if (data.status == 200) {
+                    window.location = data.url;
+                }
+            },
+            error: function (data) {
+                if (data.status == 401) {
+                    alert(data.responseJSON.message);
+                }
+            }
+        });
     });
 });

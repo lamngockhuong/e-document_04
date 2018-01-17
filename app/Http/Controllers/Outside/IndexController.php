@@ -22,7 +22,10 @@ class IndexController extends Controller
             'termTaxonomys' => function ($query) {
                 $query->with('term')->where('taxonomy', config('setting.category.taxonomy'));
             },
-        ])->orderBy('id', 'DESC')->paginate(config('setting.public.homepage.number_of_documents'));
+        ])
+        ->where('document_status', config('setting.document.status.approved'))
+        ->orderBy('id', 'DESC')
+        ->paginate(config('setting.public.homepage.number_of_documents'));
 
         return view('e-document.index', compact('title', 'documents'));
     }

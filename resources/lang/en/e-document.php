@@ -72,6 +72,17 @@ return [
             'download' => 'Download',
             'page' => 'page',
         ],
+        'download' => [
+            'show_download_later' => 'The download button will display after',
+            'second' => 's',
+            'share_to_download' => 'Or share to be loaded right away',
+            'message' => [
+                'success' => 'Success',
+                'error' => 'Error',
+                'guest' => 'Only logged in users can perform',
+                'no_longer_downloads' => 'You no longer have downloads',
+            ],
+        ],
     ],
     'footer' => [
         'copyright' => 'Copyright 2017. All rights reserved.',

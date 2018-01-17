@@ -20,5 +20,6 @@
         @yield('content')
         @include('e-document.layouts.footer')
     </div>
+    <div id="fb-root"></div>
 </body>
 </html>

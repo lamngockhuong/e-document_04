@@ -14,6 +14,12 @@
 Route::group(['namespace' => 'Outside', 'prefix' => ''], function () {
     Route::resource('', 'IndexController', ['only' => ['index'], 'names' => ['index' => 'public.index']]);
     Route::get('document/{slug}-{id}', 'DocumentController@detail')->name('document.detail')->where(['slug' => '.+', 'id' => '[0-9]+']);
+});
+
+Route::middleware(['auth'])->namespace('Outside')->prefix('')->group(function () {
+    Route::get('document/download/{token}/{id}', 'DocumentController@showDownload')->name('document.download')->where(['token' => '.+', 'id' => '[0-9]+']);
+    Route::post('document/ajax/check-download', 'DocumentController@checkDownload')->name('document.checkDownload');
+    Route::get('document/force-download/{token}/{id}', 'DocumentController@forceDownload')->name('document.forceDownload')->where(['token' => '.+', 'id' => '[0-9]+']);
     Route::post('document-manager/ajax/upload', 'DocumentManagerController@upload')->name('document-manager.upload');
     Route::get('document-manager/ajax/subcategories/{id}', 'DocumentManagerController@getSubCategories')->name('document-manager.subcategories');
     Route::put('document-manager/ajax/{id}/save', 'DocumentManagerController@save')->name('document-manager.save');
