@@ -5,7 +5,7 @@
 </tr>
 <tr class="tr_infoDoc_success">
     <td>
-        <a target="_blank" href="{{ $document->source }}"><img src="{{ $document->image }}" onerror="this.src='{{ asset('templates/e-document/images/user_small.png') }}'"></a>
+        <a target="_blank" href="{{ $document->source }}"><img src="{{ $document->image }}" onerror="this.src='{{ $document->default_image_url }}'"></a>
     </td>
     <td>
         <div>

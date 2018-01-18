@@ -1,5 +1,8 @@
 @extends('e-document.layouts.template')
 @section('title', $title)
+@push('style')
+    {!! Html::style('templates/e-document/css/upload.css') !!}
+@endpush
 @section('content')
     <div class="main-upload">
         <h2>@lang('e-document.document.create.main_title')</h2>

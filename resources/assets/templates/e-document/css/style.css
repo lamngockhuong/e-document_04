@@ -5300,3 +5300,59 @@ i.icon_app_blg::before {
 .show_result div input {
     margin-top: 10px!important
 }
+
+/* Document Manager */
+.warn,
+.warn::after,
+.warn::before {
+    position: relative;
+    padding: 0;
+    margin: 0
+}
+
+.warn {
+    font-size: 12px;
+    color: transparent
+}
+
+.warn.warning {
+    display: inline-block;
+    top: 2px;
+    right: 2px;
+    width: 1.15em;
+    height: 1.15em;
+    overflow: hidden;
+    border: none;
+    background-color: transparent;
+    border-radius: .625em
+}
+
+.warn.warning::before {
+    content: "";
+    display: block;
+    top: -.08em;
+    left: 0;
+    position: absolute;
+    border: .6em solid transparent;
+    border-bottom-color: #fd3;
+    border-bottom-width: 1em;
+    border-top-width: 0;
+    box-shadow: #999 0 1px 1px
+}
+
+.warn.warning::after {
+    font-style: normal;
+    display: block;
+    position: absolute;
+    top: .3em;
+    left: 0;
+    width: 100%;
+    padding: 0 1px;
+    text-align: center;
+    font-family: Garamond;
+    content: "!";
+    font-size: 8px;
+    font-weight: 700;
+    color: #333
+}
+

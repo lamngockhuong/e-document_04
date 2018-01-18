@@ -10,16 +10,17 @@
     {!! Html::style('templates/e-document/css/app.css') !!}
     {!! Html::style('templates/e-document/css/index.css') !!}
     {!! Html::style('templates/e-document/css/style.css') !!}
-    {!! Html::style('templates/e-document/css/upload.css') !!}
     {!! Html::style('templates/e-document/css/detail.css') !!}
+    @stack('style')
     {!! Html::script('templates/e-document/js/app.js') !!}
 </head>
 <body>
     @include('e-document.layouts.header')
     <div id="container">
         @yield('content')
-        @include('e-document.layouts.footer')
     </div>
+    <div class="clear"></div>
     <div id="fb-root"></div>
+    @include('e-document.layouts.footer')
 </body>
 </html>

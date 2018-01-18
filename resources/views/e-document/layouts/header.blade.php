@@ -22,6 +22,7 @@
                         <div>
                             <i></i>
                             <ul>
+                                <li><a rel="nofollow" href="{{ route('document-manager.index') }}">@lang('e-document.header.document_management')</a></li>
                                 <li><a rel="nofollow" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">@lang('e-document.header.logout')</a></li>
                             </ul>
                             {{ Form::open(['route' => 'logout', 'id' => 'logout-form', 'style' => 'display: none']) }}
