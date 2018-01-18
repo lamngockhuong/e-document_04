@@ -19,8 +19,29 @@ class DocumentManagerController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
+        $status = in_array($request->status, config('setting.document.status')) ?
+            $request->status : config('setting.document.status.approved');
+        $title = trans('e-document.document.index.title');
+        $documents = Document::with([
+            'user',
+            'termTaxonomys' => function ($query) {
+                $query->with('term')->where('taxonomy', config('setting.category.taxonomy'));
+            },
+        ])
+        ->where('document_status', $status)
+        ->where('user_id', auth()->user()->id)
+        ->orderBy('id', 'DESC')
+        ->paginate(config('setting.public.document_management.number_per_page'));
+        $documents->appends(request()->only(['status']));
+
+        $approvedCount = Document::ofStatus(config('setting.document.status.approved'))->count();
+        $unapprovedCount = Document::ofStatus(config('setting.document.status.unapproved'))->count();
+        $incompleteCount = Document::ofStatus(config('setting.document.status.incomplete'))->count();
+
+        return view('e-document.document.index',
+            compact('title', 'documents', 'status', 'approvedCount', 'unapprovedCount', 'incompleteCount'));
     }
 
     /**
@@ -84,6 +105,21 @@ class DocumentManagerController extends Controller
      */
     public function destroy($id)
     {
+        try {
+            $document = Document::where('user_id', auth()->user()->id)->findOrFail($id);
+            DB::beginTransaction();
+
+            File::removeFile($document->file_real_path);
+
+            $document->termTaxonomys()->detach();
+            $document->delete();
+
+            DB::commit();
+        } catch (\Exception $e) {
+            DB::rollBack();
+        }
+
+        return redirect()->back();
     }
 
     public function upload(Request $request)
@@ -100,7 +136,9 @@ class DocumentManagerController extends Controller
             $docObject = $this->uploadProcessor($request);
             $document = new Document;
             $document->user_id = auth()->user()->id;
+            $document->title = $docObject->name;
             $document->source = $docObject->fileName;
+            $document->document_status = config('setting.document.status.incomplete');
             $document->file_type = $docObject->fileType;
             $document->save();
 
@@ -176,6 +214,7 @@ class DocumentManagerController extends Controller
                 throw new \Exception();
             }
 
+            $document->document_status = config('setting.document.status.unapproved');
             $document->termTaxonomys()->attach($category);
             $document->update($inputs);
 

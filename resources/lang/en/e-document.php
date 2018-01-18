@@ -8,11 +8,37 @@ return [
         'deposit' => 'Deposit',
         'upload' => 'Upload',
         'search_placeholder' => 'Please enter the document you are looking for...',
+        'document_management' => 'Document Management',
     ],
     'index' => [
         'title' => 'Home page',
     ],
+    'message' => [
+        'title' => 'Message',
+    ],
     'document' => [
+        'overview' => [
+            'title' => 'Overview',
+        ],
+        'index' => [
+            'title' => 'Document Management',
+            'date' => 'Uploaded date: :date',
+            'price_symbol' => 'd',
+            'delete' => 'Del',
+            'edit' => 'Edit',
+            'approved' => 'Approved',
+            'incomplete' => 'Incomplete',
+            'unapproved' => 'Unapproved',
+        ],
+        'financial' => [
+            'title' => 'Financial Management',
+        ],
+        'personal' => [
+            'title' => 'Personal information',
+        ],
+        'statistic' => [
+            'title' => 'Statistic',
+        ],
         'create' => [
             'title' => 'Upload document',
             'main_title' => 'Post and share materials on the largest electronic library in Vietnam',

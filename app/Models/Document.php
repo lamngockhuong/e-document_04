@@ -104,4 +104,16 @@ class Document extends Model
     {
         return str_slug($this->attributes['title']) . '-' . time() . '.' . $this->attributes['file_type'];
     }
+
+    public function getUploadDateAttribute()
+    {
+        $time = strtotime($this->attributes['created_at']);
+
+        return date('H:i d/m/Y', $time);
+    }
+
+    public function scopeOfStatus($query, $status)
+    {
+        return $query->where('document_status', $status)->where('user_id', auth()->user()->id);
+    }
 }

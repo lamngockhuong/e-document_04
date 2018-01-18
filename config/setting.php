@@ -67,8 +67,9 @@ return [
 
     'document' => [
         'status' => [
-            'approved' => 1,
             'unapproved' => 0,
+            'approved' => 1,
+            'incomplete' => 2,
         ],
         'type' => [
             'pdf' => 2,
@@ -88,6 +89,9 @@ return [
     'public' => [
         'homepage' => [
             'number_of_documents' => 20,
+        ],
+        'document_management' => [
+            'number_per_page' => 5,
         ],
     ],
 ];
