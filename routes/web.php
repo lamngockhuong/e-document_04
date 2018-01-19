@@ -23,7 +23,7 @@ Route::middleware(['auth'])->namespace('Outside')->prefix('')->group(function ()
     Route::post('document-manager/ajax/upload', 'DocumentManagerController@upload')->name('document-manager.upload');
     Route::get('document-manager/ajax/subcategories/{id}', 'DocumentManagerController@getSubCategories')->name('document-manager.subcategories');
     Route::put('document-manager/ajax/{id}/save', 'DocumentManagerController@save')->name('document-manager.save');
-    Route::resource('document-manager', 'DocumentManagerController');
+    Route::resource('document-manager', 'DocumentManagerController', ['except' => ['store', 'show']]);
 });
 
 Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function () {

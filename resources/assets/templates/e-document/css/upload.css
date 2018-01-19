@@ -1007,6 +1007,13 @@ a.tag-tip-link{color:#009994;text-decoration:underline;}
 .tr_infoDoc_success > td{
 	vertical-align: top;
     padding-top: 10px;
+    display: inline-block;
+}
+.tr_infoDoc_success > td:nth-child(1) {
+    width: 160px;
+}
+.tr_infoDoc_success > td:nth-child(2) {
+    width: 82%;
 }
 .tr_infoDoc_success > td:nth-child(1) > a{
 	float: left;

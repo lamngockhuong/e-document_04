@@ -30,6 +30,7 @@ class DocumentRequest extends FormRequest
                     'category' => 'required|numeric',
                     'subcategory' => 'numeric',
                     'coin' => 'required|numeric',
+                    'description' => 'required',
                 ];
         }
     }

@@ -59,7 +59,7 @@
                         {!! Form::label('description', trans('e-document.document.create.upload-form.description')) !!}
                     </td>
                     <td>
-                        {{ Form::text('description', '', ['class' => 'txt-des', 'placeholder' => trans('e-document.document.create.upload-form.description_placeholder')]) }}
+                        {{ Form::textarea('description', '', ['class' => 'txt-des', 'placeholder' => trans('e-document.document.create.upload-form.description_placeholder')]) }}
                     </td>
                 </tr>
                 <tr>

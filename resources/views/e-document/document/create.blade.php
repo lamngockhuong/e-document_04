@@ -19,7 +19,7 @@
             {{ Form::hidden('id', '', ['id' => 'file-id']) }}
             {{ Form::file('docs', ['id' => 'fileupload', 'data-url' => route('document-manager.upload')]) }}
         {{ Form::close() }}
-        <table class="upload-result" id="uploadResult">
+        <table class="upload-result" id="upload-result">
         </table>
     </div>
 @endsection
