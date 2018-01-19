@@ -91,6 +91,15 @@ return [
                 'unauthorized' => 'Unauthorized access',
             ],
         ],
+        'edit' => [
+            'title' => 'Edit document information',
+            'message' => [
+                'error' => 'Error! Please try again',
+                'success' => 'Edit the document successfully',
+                'guest' => 'Only logged in users can perform',
+                'unauthorized' => 'Unauthorized access',
+            ],
+        ],
         'detail' => [
             'title' => 'Document',
             'send_message' => 'Send message',

@@ -111,7 +111,7 @@
                                         <a class="man_doc_del icon" href="{{ route('document-manager.destroy', $document->id) }}"  onclick="event.preventDefault(); document.getElementById('delete-document-' + {{ $document->id }}).submit();">
                                             @lang('e-document.document.index.delete')
                                         </a>
-                                        <a class="man_doc_edit icon" href="">@lang('e-document.document.index.edit')</a>
+                                        <a class="man_doc_edit icon" href="{{ route('document-manager.edit', $document->id) }}">@lang('e-document.document.index.edit')</a>
                                     </div>
                                 </div>
                             </div>

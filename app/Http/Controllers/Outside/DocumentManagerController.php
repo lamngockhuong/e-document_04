@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Outside;
 use App\Http\Requests\DocumentRequest;
 use App\Models\Document;
 use App\Models\Term;
+use App\Models\TermTaxonomy;
 use Illuminate\Database\QueryException;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -21,7 +22,7 @@ class DocumentManagerController extends Controller
      */
     public function index(Request $request)
     {
-        $status = in_array($request->status, config('setting.document.status')) ?
+        $status = $request->status && in_array($request->status, config('setting.document.status')) ?
             $request->status : config('setting.document.status.approved');
         $title = trans('e-document.document.index.title');
         $documents = Document::with([
@@ -57,26 +58,6 @@ class DocumentManagerController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-    }
-
-    /**
      * Show the form for editing the specified resource.
      *
      * @param  int  $id
@@ -84,17 +65,80 @@ class DocumentManagerController extends Controller
      */
     public function edit($id)
     {
+        try {
+            $document = Document::where('user_id', auth()->user()->id)->findOrFail($id);
+            $title = $document->title;
+
+            // get category
+            $subCategory = $this->getCategory($document);
+            $category = config('setting.term_taxonomy_default.parent');
+            if ($subCategory) {
+                $category = $subCategory->parent ? $subCategory->parent : config('setting.term_taxonomy_default.parent');
+                $category = $category ? $category : $subCategory->id;
+                $subCategory = $category != $subCategory->id ? $subCategory->id : config('setting.term_taxonomy_default.parent');
+            }
+
+            // load parent categories
+            $categories = $this->getCategories();
+            $subCategories = $this->getSubCategoriesArray($category);
+
+            return view('e-document.document.edit', compact('title','document', 'category', 'subCategory', 'categories', 'subCategories'));
+        } catch (\Exception $e) {
+            return redirect()->route('document-manager.index');
+        }
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param DocumentRequest $request
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(DocumentRequest $request, $id)
     {
+        try {
+            DB::beginTransaction();
+
+            $document = Document::findOrFail($id);
+
+            if ($document->user_id != auth()->user()->id) {
+                return response()->json([
+                    'status' => config('setting.status.error'),
+                    'message' => trans('e-document.document.edit.message.unauthorized'),
+                ], 400);
+            }
+
+            $inputs = $request->only('title', 'description', 'coin');
+            $categoryId = $request->category;
+            $subCategoryId = $request->subcategory;
+
+            $categoryId = $subCategoryId <= config('setting.term_taxonomy_default.parent') ? $categoryId : $subCategoryId;
+
+            // check exists term with parent id
+            $category = Term::findOrFail($categoryId);
+
+            $document->document_status = $document->document_status == config('setting.document.status.incomplete') ?
+                config('setting.document.status.unapproved') : $document->document_status;
+            $document->termTaxonomys()->sync($category);
+            $document->update($inputs);
+
+            DB::commit();
+
+            return response()->json([
+                'status' => config('setting.status.success'),
+                'message' => trans('e-document.document.edit.message.success'),
+            ], 200);
+        } catch (QueryException $e) {
+            DB::rollBack();
+        } catch (\Exception $e) {
+            DB::rollBack();
+        }
+
+        return response()->json([
+            'status' => config('setting.status.error'),
+            'message' => trans('e-document.document.edit.message.error'),
+        ], 400);
     }
 
     /**
@@ -165,19 +209,6 @@ class DocumentManagerController extends Controller
                 'message' => $e->getMessage(),
             ], 403);
         }
-    }
-
-    public function getSubCategories($id)
-    {
-        $subCategories = [];
-        if ($id) {
-            $subCategories = Term::whereHas('termtaxonomy', function ($query) use ($id) {
-                $query->where('taxonomy', 'like', config('setting.category.taxonomy'))
-                    ->where('parent', '=', $id);
-            })->get(['name', 'id']);
-        }
-
-        return response()->json($subCategories);
     }
 
     public function save(DocumentRequest $request, $id)
@@ -251,6 +282,11 @@ class DocumentManagerController extends Controller
         return $docObject;
     }
 
+    private function getCategory($document)
+    {
+        return $document->termTaxonomys()->first();
+    }
+
     public function getCategories()
     {
         $items = [config('setting.none') => trans('admin.category.choose')];
@@ -260,5 +296,28 @@ class DocumentManagerController extends Controller
         })->pluck('name', 'id')->all();
 
         return $items;
+    }
+
+    public function getSubCategories($id)
+    {
+        $subCategories = [];
+        if ($id) {
+            $subCategories = Term::subCategories($id)->all();
+        }
+
+        return response()->json($subCategories);
+    }
+
+    public function getSubCategoriesArray($id)
+    {
+        $subCategories = [config('setting.category.none') => trans('admin.category.none')];
+        if ($id) {
+            $terms = Term::subCategories($id)->all();
+            foreach ($terms as $term) {
+                $subCategories = $subCategories + [$term->id => $term->name];
+            }
+        }
+
+        return $subCategories;
     }
 }
