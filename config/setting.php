@@ -63,6 +63,7 @@ return [
     'user' => [
         'status_active' => 1,
         'status_deactive' => 0,
+        'guest_id' => 0,
     ],
 
     'document' => [

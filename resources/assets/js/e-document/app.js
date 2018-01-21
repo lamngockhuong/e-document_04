@@ -140,8 +140,8 @@ $(function () {
     // show download document
     $('.download-button').on('click', function () {
         var url = $(this).data('url');
-        var i = $(this).data('id');
-        var t = 'download';
+        var id = $(this).data('id');
+        var type = 'download';
         $.ajax({
             url: url,
             type:'POST',
@@ -150,8 +150,8 @@ $(function () {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
             },
             data: {
-                id : i,
-                type : t,
+                id : id,
+                type : type,
             },
             success: function (data) {
                 if (data.status == 200) {
@@ -180,8 +180,8 @@ $(function () {
 
     $('.btn_download').on('click', function () {
         var url = $(this).data('url');
-        var i = $(this).data('id');
-        var t = 'force_download';
+        var id = $(this).data('id');
+        var type = 'force_download';
         $.ajax({
             url: url,
             type:'POST',
@@ -190,8 +190,8 @@ $(function () {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
             },
             data: {
-                id : i,
-                type : t,
+                id : id,
+                type : type,
             },
             success: function (data) {
                 if (data.status == 200) {
@@ -262,4 +262,32 @@ $(function () {
             }
         });
     });
+
+    // favorites (document detail)
+    $('.detailDownload').on('click', '#add-to-favorite', function (e) {
+            var url = $(this).data('url');
+            var id = $(this).data('id');
+            var status = $(this).data('status');
+            $.ajax({
+                url: url,
+                type:'POST',
+                dataType: 'json',
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
+                data: {
+                    id : id,
+                    status: status,
+                },
+                success: function (data) {
+                    $('.detailDownload #add-to-favorite').remove();
+                    $('.detailDownload').prepend(data.html);
+                },
+                error: function (data) {
+                    if (data.status == 401) {
+                        alert('login to add the document to favorites');
+                    }
+                }
+            });
+        });
 });

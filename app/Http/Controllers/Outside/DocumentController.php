@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Outside;
 
 use App\Models\Document;
+use App\Models\Favorite;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Symfony\Component\HttpFoundation\File\Exception\FileNotFoundException;
@@ -15,6 +16,9 @@ class DocumentController extends Controller
         try {
             $document = Document::with([
                 'user',
+                'favorites' => function ($query) {
+                    $query->where('user_id', auth()->guest() ? config('setting.user.guest_id') : auth()->user()->id);
+                },
                 'termTaxonomys' => function ($query) {
                     $query->with('term')->where('taxonomy', config('setting.category.taxonomy'));
                 },
@@ -107,5 +111,33 @@ class DocumentController extends Controller
         }
 
         return $category;
+    }
+
+    public function addToFavorites(Request $request)
+    {
+        try {
+            $document = Document::findOrFail($request->id);
+
+            if ($request->status) {
+                Favorite::where('document_id', $document->id)->where('user_id', auth()->user()->id)->delete();
+            } else {
+                $favorite = Favorite::create([
+                    'user_id' => auth()->user()->id,
+                    'document_id' => $document->id,
+                ]);
+                $document->favorites()->save($favorite);
+            }
+
+            return response()->json([
+                'status' => config('setting.status.success'),
+                'message' => trans('e-document.document.detail.message.success'),
+                'html' => view('e-document.render.favorite-button', compact('document'))->render(),
+            ], 200);
+        } catch (\Exception $e) {
+            return response()->json([
+                'status' => config('setting.status.error'),
+                'message' => trans('e-document.document.detail.message.error'),
+            ], 400);
+        }
     }
 }
