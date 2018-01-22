@@ -11,6 +11,8 @@ class Favorite extends Model
         'document_id',
     ];
 
+    const UPDATED_AT = null;
+
     public function user()
     {
         return $this->belongsTo(User::class);

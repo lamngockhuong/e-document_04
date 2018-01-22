@@ -19,7 +19,7 @@
             <div class="ad_user_menu_left">
                 <ul>
                     <li>
-                        <a href="#" class="icon_tq">@lang('e-document.document.overview.title')</a>
+                        <a href="{{ route('user.favorites') }}" class="icon_tq">@lang('e-document.document.overview.title')</a>
                     </li>
                     <li>
                         <a href="{{ route('document-manager.index') }}" class="icon_qltl active_tabU">@lang('e-document.document.index.title')</a>

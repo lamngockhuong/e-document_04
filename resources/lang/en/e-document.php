@@ -105,7 +105,13 @@ return [
             'send_message' => 'Send message',
             'report_issue' => 'Report',
             'download' => 'Download',
+            'add_to_favorite' => 'Add to favorites',
+            'remove_from_favorite' => 'Remove from favorites',
             'page' => 'page',
+            'message' => [
+                'error' => 'Error',
+                'success' => 'Success',
+            ],
         ],
         'download' => [
             'show_download_later' => 'The download button will display after',
@@ -117,6 +123,12 @@ return [
                 'guest' => 'Only logged in users can perform',
                 'no_longer_downloads' => 'You no longer have downloads',
             ],
+        ],
+    ],
+    'user' => [
+        'favorites' => [
+            'title' => 'Favorites',
+            'upload_a_photo' => 'Upload a photo',
         ],
     ],
     'footer' => [
