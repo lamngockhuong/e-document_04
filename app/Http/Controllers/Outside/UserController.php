@@ -20,4 +20,11 @@ class UserController extends Controller
 
         return view('e-document.user.favorites', compact('title', 'documents'));
     }
+
+    public function showPersonalInformation()
+    {
+        $title = trans('e-document.user.personal_information.title');
+
+        return view('e-document.user.personal-information', compact('title'));
+    }
 }

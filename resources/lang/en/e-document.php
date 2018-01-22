@@ -9,6 +9,7 @@ return [
         'upload' => 'Upload',
         'search_placeholder' => 'Please enter the document you are looking for...',
         'document_management' => 'Document Management',
+        'personal_information' => 'Personal Information',
     ],
     'index' => [
         'title' => 'Home page',
@@ -129,6 +130,21 @@ return [
         'favorites' => [
             'title' => 'Favorites',
             'upload_a_photo' => 'Upload a photo',
+        ],
+        'personal_information' => [
+            'title' => 'Update personal information',
+            'first_name' => 'Firstname',
+            'last_name' => 'Lastname',
+            'information' => 'Information',
+            'username' => 'Username',
+            'email' => 'Email',
+            'free_download' => 'Free download',
+            'status' => 'Status',
+            'security' => 'Security',
+            'password' => 'Password',
+            'btn_change' => 'Change',
+            'btn_save' => 'Save',
+            'btn_cancel' => 'Cancel',
         ],
     ],
     'footer' => [
