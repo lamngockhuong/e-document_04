@@ -13,6 +13,7 @@
     {!! Html::style('templates/e-document/css/detail.css') !!}
     @stack('style')
     {!! Html::script('templates/e-document/js/app.js') !!}
+    {!! Html::script('templates/dist/lang.dist.js') !!}
 </head>
 <body>
     @include('e-document.layouts.header')

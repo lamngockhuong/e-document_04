@@ -106,12 +106,15 @@ return [
             'send_message' => 'Send message',
             'report_issue' => 'Report',
             'download' => 'Download',
+            'edit' => 'Edit the document',
             'add_to_favorite' => 'Add to favorites',
             'remove_from_favorite' => 'Remove from favorites',
             'page' => 'page',
             'message' => [
                 'error' => 'Error',
                 'success' => 'Success',
+                'document_is_pending_review' => 'This document is pending review by the administrator',
+                'document_not_complete_yet' => 'This document has not been completed yet. Please add information to the document',
             ],
         ],
         'download' => [
@@ -141,10 +144,15 @@ return [
             'free_download' => 'Free download',
             'status' => 'Status',
             'security' => 'Security',
-            'password' => 'Password',
+            'password' => 'New Password',
+            'oldpassword' => 'Password',
+            'password_confirmation' => 'Retype password',
             'btn_change' => 'Change',
             'btn_save' => 'Save',
             'btn_cancel' => 'Cancel',
+            'message' => [
+                'password_not_match' => 'The new password does not match the confirm password',
+            ],
         ],
     ],
     'footer' => [

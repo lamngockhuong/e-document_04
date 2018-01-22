@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\User;
 use App\Http\Requests\UserRequest;
-use File;
+use FileHelper;
 
 class UserController extends Controller
 {
@@ -52,7 +52,7 @@ class UserController extends Controller
         // get status
         $user->status = $request->status ? config('setting.user.status_active') : config('setting.user.status_deactive');
         // get avatar
-        $user->avatar = $request->hasFile('avatar') ? File::uploadFile($request->file('avatar'), config('setting.avatar_folder'), $request->username, false, true) : config('setting.users_default.avatar');
+        $user->avatar = $request->hasFile('avatar') ? FileHelper::uploadFile($request->file('avatar'), config('setting.avatar_folder'), $request->username, false, true) : config('setting.users_default.avatar');
         // user role TODO
         $user->role = serialize(config('setting.users_default.role'));
 
@@ -124,7 +124,7 @@ class UserController extends Controller
         // get status
         $user->status = $request->status ? config('setting.user.status_active') : config('setting.user.status_deactive');
         // delete old avatar
-        File::removePublicFile($user->avatar, config('setting.avatar_folder'));
+        FileHelper::removePublicFile($user->avatar, config('setting.avatar_folder'));
         // get avatar
         $user->avatar = $request->hasFile('avatar') ? File::uploadFile($request->file('avatar'), config('setting.avatar_folder'), $request->username, false, true) : $user->avatar;
         // user role TODO
@@ -163,7 +163,7 @@ class UserController extends Controller
     {
         try {
             $user = User::findOrFail($id);
-            File::removePublicFile($user->avatar, config('setting.avatar_folder'));
+            FileHelper::removePublicFile($user->avatar, config('setting.avatar_folder'));
 
             if ($user->delete()) {
                 $message = trans('admin.user.message.delete-success');

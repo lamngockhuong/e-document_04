@@ -9,7 +9,7 @@ use App\Models\TermTaxonomy;
 use Illuminate\Database\QueryException;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use File;
+use FileHelper;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
 
@@ -22,7 +22,7 @@ class DocumentManagerController extends Controller
      */
     public function index(Request $request)
     {
-        $status = $request->status && in_array($request->status, config('setting.document.status')) ?
+        $status = !is_null($request->status) && in_array($request->status, config('setting.document.status')) ?
             $request->status : config('setting.document.status.approved');
         $title = trans('e-document.document.index.title');
         $documents = Document::with([
@@ -153,7 +153,7 @@ class DocumentManagerController extends Controller
             $document = Document::where('user_id', auth()->user()->id)->findOrFail($id);
             DB::beginTransaction();
 
-            File::removeFile($document->file_real_path);
+            FileHelper::removeFile($document->file_real_path);
 
             $document->termTaxonomys()->detach();
             $document->delete();
@@ -270,7 +270,7 @@ class DocumentManagerController extends Controller
 
     private function uploadProcessor(Request $request)
     {
-        $fileName = $request->docs->store('docs' . File::mkdirsWithTime(true, false));
+        $fileName = $request->docs->store('docs' . FileHelper::mkdirsWithTime(true, false));
 
         $docObject = new \stdClass();
         $docObject->uid = $request->id;

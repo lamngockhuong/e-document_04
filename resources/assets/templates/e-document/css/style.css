@@ -5356,3 +5356,11 @@ i.icon_app_blg::before {
     color: #333
 }
 
+.alert_warning {
+    color: red;
+    background-color: #FFCECE;
+    border-color: red;
+    padding: 8px 10px;
+    border-radius: 3px;
+    margin-bottom: 10px
+}

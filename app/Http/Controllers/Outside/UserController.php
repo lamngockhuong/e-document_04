@@ -27,4 +27,14 @@ class UserController extends Controller
 
         return view('e-document.user.personal-information', compact('title'));
     }
+
+    public function changePassword(Request $request)
+    {
+        $this->validate($request, [
+            'oldpassword' => 'required|string',
+            'password' => 'required|string|confirmed',
+        ]);
+
+        
+    }
 }

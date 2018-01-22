@@ -8,24 +8,31 @@
                     <i class="icon_nav_home"></i>
                     <a href="{{ route('public.index') }}" title="@lang('e-document.index.title')">@lang('e-document.index.title')</a>
                 </li>
-                @if ($category->taxonomyParent)
+                @if ($document->document_status != config('setting.document.status.incomplete'))
+                    @if ($category->taxonomyParent)
+                        <li class="cat_nav_pa" itemtype="http://data-vocabulary.org/Breadcrumb" itemscope="">
+                            <i class="icon_nav_ctn"></i>
+                            <a itemprop="url" class="cat_nav_top_a" href="" title="{{ $category->taxonomyParent->term->name }}">
+                                <span itemprop="title">{{ $category->taxonomyParent->term->name }}</span>
+                            </a>
+                        </li>
+                    @endif
                     <li class="cat_nav_pa" itemtype="http://data-vocabulary.org/Breadcrumb" itemscope="">
                         <i class="icon_nav_ctn"></i>
-                        <a itemprop="url" class="cat_nav_top_a" href="" title="{{ $category->taxonomyParent->term->name }}">
-                            <span itemprop="title">{{ $category->taxonomyParent->term->name }}</span>
+                        <a itemprop="url" class="cat_nav_top_a" href="" title="{{ $category->term->name }}">
+                            <span itemprop="title">{{ $category->term->name }}</span>
                         </a>
                     </li>
                 @endif
-                <li class="cat_nav_pa" itemtype="http://data-vocabulary.org/Breadcrumb" itemscope="">
-                    <i class="icon_nav_ctn"></i>
-                    <a itemprop="url" class="cat_nav_top_a" href="" title="{{ $category->term->name }}">
-                        <span itemprop="title">{{ $category->term->name }}</span>
-                    </a>
-                </li>
             </ul>
         </section>
         <div class="detailLeft">
             <div class="detailInfo">
+                @if ($document->document_status == config('setting.document.status.unapproved'))
+                    <div class="detail-warning">@lang('e-document.document.detail.message.document_is_pending_review')</div>
+                @elseif ($document->document_status == config('setting.document.status.incomplete'))
+                    <div class="detail-warning">@lang('e-document.document.detail.message.document_not_complete_yet')</div>
+                @endif
                 <h1>
                     {{ $document->title }} <span class="icon i_type_doc i_type_doc3"></span>
                 </h1>
@@ -33,6 +40,11 @@
                     <span><i class="icon i_numpage"></i>{{ $document->page_count }}</span>
                     <span><i class="icon i_numview"></i>{{ $document->view_count }}</span>
                     <span><i class="icon i_numdown"></i>{{ $document->download_count }}</span>
+                    @if (!auth()->guest() && auth()->user()->id == $document->user_id)
+                        <a rel="nofollow" class="edit" href="{{ route('document-manager.edit', $document->id) }}">
+                            <i class="icon"></i>@lang('e-document.document.detail.edit')
+                        </a>
+                    @endif
                 </div>
                 <div>
                     <a rel="nofollow" href="javascript:void(0)">

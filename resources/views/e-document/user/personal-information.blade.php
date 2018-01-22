@@ -44,47 +44,56 @@
                     <div class="edit_from_user">
                         <h4 class="title_user_info">
                             @lang('e-document.user.personal_information.first_name')
-                            <a href="javascript:;" class="icon_edit_title filter icon" onclick="edit_user(this); return">@lang('e-document.user.personal_information.btn_change')</a>
+                            <a href="javascript:void(0)" class="icon_edit_title filter icon" onclick="editUser(this)">
+                                @lang('e-document.user.personal_information.btn_change')
+                            </a>
                         </h4>
                         <div class="user_result">
                             <h3 class="ad_user_name edit_name">{{ auth()->user()->firstname }}</h3>
                         </div>
                         <div class="user_no_result">
-                            {{ Form::open(['method' => 'POST', 'name' => 'fr_name', 'class' => 'fr_name']) }}
+                            {{ Form::open() }}
                                 <span class="ip_name_edit">
-                                    {{ Form::text('txtUsername', auth()->user()->firstname, ['class' => 'edit_ip_name']) }}
-                                    <input name="txtUsername" value="Lâm Ngọc Khương" class="edit_ip_name" onkeydown="CountLeft(this.form.txtUsername,this.form.cmt_disabled,0)" onkeyup="CountLeft(this.form.txtUsername,this.form.cmt_disabled,0)">
-                                    <em><input disabled="disabled" name="cmt_disabled" class="number_cmt">/30</em>
+                                    {{ Form::text('firstname', auth()->user()->firstname, ['class' => 'edit_ip_name']) }}
                                 </span>
-                            {{ Form::close() }}
-                            <form method="POST" name="fr_name" class="fr_name" action="">
-                                <span class="ip_name_edit">
-                                    <input name="txtUsername" value="Lâm Ngọc Khương" class="edit_ip_name" onkeydown="CountLeft(this.form.txtUsername,this.form.cmt_disabled,0)" onkeyup="CountLeft(this.form.txtUsername,this.form.cmt_disabled,0)">
-                                    <em><input disabled="disabled" name="cmt_disabled" class="number_cmt">/30</em>
-                                </span>
-                                <button type="submit" name="frm_name" onclick="return Checklenght()" class="smt_edit_info" value="frm_name">
-                                    @lang('e-document.user.personal_information.btn_change')
-                                </button>
-                                <a href="javascript:;" class="smt_exit" onclick="exit_user(this); return">
+                                {{ Form::button(trans('e-document.user.personal_information.btn_save'), [
+                                    'class' => 'smt_edit_info',
+                                    'onclick' => 'changeUserInformation()',
+                                    ])
+                                }}
+                                <a href="javascript:void(0)" class="smt_exit" onclick="exitUser(this)">
                                     @lang('e-document.user.personal_information.btn_cancel')
                                 </a>
-                            </form>
+                            {{ Form::close() }}
                         </div>
-                        <h4 class="title_user_info">@lang('e-document.user.personal_information.last_name')</h4>
+                    </div>  
+                    <div class="line_array"></div>
+                    <div class="edit_from_user">
+                        <h4 class="title_user_info">
+                            @lang('e-document.user.personal_information.last_name')
+                            <a href="javascript:void(0)" class="icon_edit_title filter icon" onclick="editUser(this)">
+                                @lang('e-document.user.personal_information.btn_change')
+                            </a>
+                        </h4>
                         <div class="user_result">
                             <h3 class="ad_user_name edit_name">{{ auth()->user()->lastname }}</h3>
                         </div>
                         <div class="user_no_result">
-                            <form method="POST" name="fr_name" class="fr_name" action="">
+                            {{ Form::open() }}
                                 <span class="ip_name_edit">
-                                    <input name="txtUsername" value="Lâm Ngọc Khương" class="edit_ip_name" onkeydown="CountLeft(this.form.txtUsername,this.form.cmt_disabled,0)" onkeyup="CountLeft(this.form.txtUsername,this.form.cmt_disabled,0)">
-                                    <em><input disabled="disabled" name="cmt_disabled" class="number_cmt">/30</em>
+                                    {{ Form::text('lastname', auth()->user()->lastname, ['class' => 'edit_ip_name']) }}
                                 </span>
-                                <button type="submit" name="frm_name" onclick="return Checklenght()" class="smt_edit_info" value="frm_name">@lang('e-document.user.personal_information.btn_save')</button>
-                                <a href="javascript:;" class="smt_exit" onclick="exit_user(this); return">@lang('e-document.user.personal_information.btn_cancel')</a>
-                            </form>
+                                {{ Form::button(trans('e-document.user.personal_information.btn_save'), [
+                                    'class' => 'smt_edit_info',
+                                    'onclick' => 'changeUserInformation()',
+                                    ])
+                                }}
+                                <a href="javascript:void(0)" class="smt_exit" onclick="exitUser(this)">
+                                    @lang('e-document.user.personal_information.btn_cancel')
+                                </a>
+                            {{ Form::close() }}
                         </div>
-                    </div>
+                    </div>  
                     <div class="line_array"></div>
                     <div class="edit_from_user">
                         <h4 class="title_user_info">@lang('e-document.user.personal_information.information')</h4>
@@ -111,17 +120,112 @@
                     <div class="edit_from_user">
                         <h4 class="title_user_info">
                             @lang('e-document.user.personal_information.security')
-                            <a href="javascript:void(0)" class="icon_edit_info filter icon" onclick="edit_user(this); return">
+                            <a href="javascript:void(0)" class="icon_edit_info filter icon" onclick="editUser(this)">
                                 @lang('e-document.user.personal_information.btn_change')
                             </a>
                         </h4>
-                        <p>
-                            <span class="edit_info_left">@lang('e-document.user.personal_information.password')</span>
-                            <span class="equal_info_right">****************</span>
-                        </p>
+                        <div class="user_result">
+                            <p>
+                                <span class="edit_info_left">@lang('e-document.user.personal_information.oldpassword')</span>
+                                <span class="equal_info_right">****************</span>
+                            </p>
+                        </div>
+                        <div class="user_no_result">
+                            {{ Form::open(['method' => 'PUT', 'route' => 'user.change_password']) }}
+                                <p>
+                                    <span class="edit_info_left">@lang('e-document.user.personal_information.oldpassword')</span>
+                                    <span class="equal_info_right">
+                                        {{ Form::password('oldpassword', ['class' => 'user_address_edit', 'id' => 'oldpassword']) }}
+                                    </span>
+                                </p>
+                                <p>
+                                    <span class="edit_info_left">@lang('e-document.user.personal_information.password')</span>
+                                    <span class="equal_info_right">
+                                        {{ Form::password('password', ['class' => 'user_address_edit', 'id' => 'password']) }}
+                                    </span>
+                                </p>
+                                <p>
+                                    <span class="edit_info_left">@lang('e-document.user.personal_information.password_confirmation')</span>
+                                    <span class="equal_info_right">
+                                        {{ Form::password('password_confirmation', ['class' => 'user_address_edit', 'id' => 'password_confirmation']) }}
+                                    </span>
+                                </p>
+                                {{ Form::button(trans('e-document.user.personal_information.btn_change'), [
+                                    'class' => 'smt_edit_info smt_info',
+                                    'onclick' => 'changePassword(this)',
+                                    ])
+                                }}
+                                <a href="javascript:void(0)" class="smt_exit" onclick="exitUser(this)">
+                                    @lang('e-document.user.personal_information.btn_cancel')
+                                </a>
+                            {{ Form::close() }}
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+    <script>
+        /* personal information */
+
+        function editUser(self) {
+            $(self).parents('.edit_from_user').find('.user_result').hide();
+            $(self).parents('.edit_from_user').find('.user_no_result').show();
+        }
+
+        function exitUser(self) {
+            $(self).parents('.edit_from_user').find('.user_result').show();
+            $(self).parents('.edit_from_user').find('.user_no_result').hide();
+        }
+
+        function changeUserInformation() {
+
+        }
+
+        function changePassword(self) {
+            var form = $(self).parents('.user_no_result').find('form');
+            var oldpassword = form.find('#oldpassword').val();
+            var password = form.find('#password').val();
+            var password_confirmation = form.find('#password_confirmation').val();
+
+            if (password !== password_confirmation) {
+                alert(Lang.get('e-document.user.personal_information.message.password_not_match'));
+                return;
+            }
+
+            var url = form.attr('action');
+            $.ajax({
+                url: url,
+                type:'POST',
+                dataType: 'json',
+                data: form.serialize(),
+                success: function (data) {
+                    form.find('#password').val('');
+                    form.find('#password_confirmation').val('');
+                    $('.info_user_cnt .alert').remove();
+                    if(data.status == 200){
+                        $('.info_user_cnt').prepend('<div class="alert alert_success">' + Lang.get('') + '</div>');
+                    } else {
+
+                    }
+                },
+                error: function (data) {
+                    $('.info_user_cnt .alert').remove();
+                    if(data.status == 422) {
+                        var error = data.responseJSON;
+                        var errors = error.errors;
+                        $('.info_user_cnt').prepend('<div class="alert alert_warning">' + error.message + '</div>');
+                        $.each(errors, function (key, value) {
+                            $('.info_user_cnt .alert').append('<br>' + value);
+                        });
+                    } else {
+                        // Error
+                        // Incorrect credentials
+                        $('#upload-result .tr_uploadNotifi').remove();
+                        $('#upload-result ').prepend('<tr class="tr_uploadNotifi error"><td colspan="2"><span><i class="icon"></i>  Incorrect credentials. Please try again.</span></td></tr>');
+                    }
+                }
+            });
+        }
+    </script>
 @endsection
